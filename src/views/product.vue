@@ -50,7 +50,7 @@
     >
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-          <div class="modal-header bg-dark text-white">
+          <div class="modal-header  text-white" style="background:#99cfff">
             <h5 id="exampleModalLabel" class="modal-title">
               <span>新增產品</span>
             </h5>

@@ -49,7 +49,7 @@
     >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal-header" style="background: #90caff; color: white;">
             <h5 class="modal-title" id="exampleModalLabel">設定優惠券</h5>
             <button
               type="button"

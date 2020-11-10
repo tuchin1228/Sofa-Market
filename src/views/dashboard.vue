@@ -25,4 +25,7 @@ export default {
 
 <style scoped lang="scss">
 @import '../assets/dashboard.scss';
+main{
+  box-shadow: 0px 10px 10px #f1f1f1;
+}
 </style>

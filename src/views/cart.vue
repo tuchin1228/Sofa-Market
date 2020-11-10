@@ -247,9 +247,9 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/coupon`;
 
       vm.$store.dispatch('LoadingStatus', true);
-      this.$http.post(api, { data: couponcode }).then((res) => {
+      vm.$http.post(api, { data: couponcode }).then((res) => {
         if (res.data.success) {
-          this.$store.dispatch('showalerts', {
+          vm.$store.dispatch('showalerts', {
             isShow: true,
             type: 'success',
             content: '以套用優惠券',
@@ -285,7 +285,7 @@ export default {
       vm.$http.post(api, { data: vm.order }).then((res) => {
         if (res.data.success) {
           vm.$store.dispatch('LoadingStatus', false);
-          this.$router.push(`/checkout/${res.data.orderId}`);
+          vm.$router.push(`/checkout/${res.data.orderId}`);
         }
       });
     },

@@ -211,7 +211,7 @@ export default {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/admin/coupons?page=${page}`;
       vm.$store.dispatch('LoadingStatus', true);
-      this.$http.get(api).then((res) => {
+      vm.$http.get(api).then((res) => {
         vm.AllCoupon = res.data.coupons;
         vm.paginationData = res.data.pagination;
         vm.$store.dispatch('LoadingStatus', false);
@@ -240,7 +240,7 @@ export default {
           vm.tempCoupon.due_date = timecode;
         }
 
-        this.$http[httpMethod](api, { data: vm.tempCoupon }).then(() => {
+        vm.$http[httpMethod](api, { data: vm.tempCoupon }).then(() => {
           $('#couponModal').modal('hide');
           vm.getCoupon();
         });
@@ -254,7 +254,7 @@ export default {
     deleteCoupon() {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/admin/coupon/${this.tempCoupon.id}`;
-      this.$http.delete(api).then(() => {
+      vm.$http.delete(api).then(() => {
         $('#delCouponModal').modal('hide');
 
         vm.getCoupon();

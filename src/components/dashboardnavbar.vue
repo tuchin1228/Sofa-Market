@@ -50,7 +50,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
   data() {
@@ -69,7 +68,7 @@ export default {
   methods: {
     signout() {
       const api = `${process.env.VUE_APP_APIPATH}/logout`;
-      axios.post(api).then((res) => {
+      this.$http.post(api).then((res) => {
         if (res.data.success) {
           this.$router.push('/login');
         }

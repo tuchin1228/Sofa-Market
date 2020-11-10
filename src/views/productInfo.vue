@@ -116,7 +116,7 @@ export default {
     getProductInfo(id) {
       const vm = this;
       vm.$store.dispatch('LoadingStatus', true);
-      this.$http
+      vm.$http
         .get(
           `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/product/${id}`,
         )
@@ -125,7 +125,7 @@ export default {
             vm.ProductInfo = res.data.product;
             vm.$store.dispatch('LoadingStatus', false);
           } else {
-            this.$router.push('/error');
+            vm.$router.push('/error');
             vm.$store.dispatch('LoadingStatus', false);
           }
         });
@@ -149,7 +149,7 @@ export default {
         type: 'success',
         content: `${vm.ProductInfo.title} 加入購物車`,
       };
-      this.$store.dispatch('addToCart', { cartcontent, alertInfo });
+      vm.$store.dispatch('addToCart', { cartcontent, alertInfo });
     },
   },
 };

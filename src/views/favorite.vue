@@ -72,7 +72,7 @@ export default {
       const temparr = [];
       vm.favoriteID.forEach((id) => {
         const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/product/${id}`;
-        this.$http.get(api).then((res) => {
+        vm.$http.get(api).then((res) => {
           temparr.push(res.data.product);
         });
       });

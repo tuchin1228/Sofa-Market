@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+
 import Navbar from '../components/dashboardnavbar.vue';
 
 export default {
@@ -18,7 +18,7 @@ export default {
 
   created() {
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
-    axios.defaults.headers.common.Authorization = `${token}`;
+    this.$http.defaults.headers.common.Authorization = `${token}`;
   },
 };
 </script>

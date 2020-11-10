@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
   data() {
@@ -53,7 +52,7 @@ export default {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/admin/signin`;
       vm.$store.dispatch('LoadingStatus', true);
-      axios.post(api, vm.user).then((res) => {
+      vm.$http.post(api, vm.user).then((res) => {
         if (res.data.success) {
           const { token } = res.data;
           const { expired } = res.data;

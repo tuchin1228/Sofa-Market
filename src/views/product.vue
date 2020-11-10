@@ -328,7 +328,7 @@ export default {
       formData.append('file-to-upload', uploadfile);
       vm.uploadstatus = true;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/admin/upload`;
-      this.$http
+      vm.$http
         .post(api, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
@@ -347,10 +347,10 @@ export default {
         httpmethod = 'put';
         api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/admin/product/${vm.tempProduct.id}`;
       }
-      this.$http[`${httpmethod}`](api, { data: vm.tempProduct }).then((res) => {
+      vm.$http[`${httpmethod}`](api, { data: vm.tempProduct }).then((res) => {
         if (res.data.success) {
           $('#productModal').modal('hide');
-          this.$store.dispatch('getProduct');
+          vm.$store.dispatch('getProduct');
         }
       });
     },

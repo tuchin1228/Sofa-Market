@@ -95,7 +95,7 @@ export default {
 
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/order/${vm.orderId}`;
       vm.$store.dispatch('LoadingStatus', true);
-      this.$http.get(api).then((res) => {
+      vm.$http.get(api).then((res) => {
         vm.$store.dispatch('LoadingStatus', false);
         vm.orderInfo = res.data.order;
       });
@@ -105,7 +105,7 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/pay/${vm.orderId}`;
 
       vm.$store.dispatch('LoadingStatus', true);
-      this.$http.post(api).then(() => {
+      vm.$http.post(api).then(() => {
         vm.$store.dispatch('LoadingStatus', false);
         vm.getorder();
       });

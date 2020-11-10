@@ -1,0 +1,26 @@
+.sidebar {
+    h6 {
+        color: rgb(255, 255, 255);
+    }
+}
+
+a {
+    &:hover {
+        text-decoration: none !important;
+    }
+}
+
+li.nav-item a {
+    color          : white;
+    text-decoration: none;
+    padding        : 0.5rem 2rem;
+    transition     : .3s;
+
+    &:hover {
+        background: #a3a3a3;
+    }
+}
+
+li.nav-item .active {
+    background: #696969;
+}

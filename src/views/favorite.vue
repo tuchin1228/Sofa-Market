@@ -37,6 +37,7 @@
         </transition>
       </div>
     </div>
+    <Footer/>
   </div>
 </template>
 
@@ -46,6 +47,7 @@ import Slick from '../components/slick.vue';
 import Navbar from '../components/navbar.vue';
 import ProductCard from '../components/productCard.vue';
 import PreviewModal from '../components/previewModal.vue';
+import Footer from '../components/footer.vue';
 
 export default {
   components: {
@@ -53,6 +55,7 @@ export default {
     Navbar,
     ProductCard,
     PreviewModal,
+    Footer,
   },
   data() {
     return {

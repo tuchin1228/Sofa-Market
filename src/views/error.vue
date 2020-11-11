@@ -5,15 +5,17 @@
       <img src="../assets/img/404.png" alt="" />
       <router-link to="/"> 回首頁 </router-link>
     </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import Navbar from '../components/navbar.vue';
+import Footer from '../components/footer.vue';
 
 export default {
   components: {
-    Navbar,
+    Navbar, Footer,
   },
 };
 </script>

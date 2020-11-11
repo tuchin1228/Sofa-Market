@@ -1,10 +1,8 @@
 <template>
-  <div class="row align-items-cente ">
+  <div class="loginbg">
     <form class="form-signin" @submit.prevent="signin">
-      <h1 class="h3 mb-3 font-weight-normal">
-        會員登入
-      </h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
+      <h1 class="h3 mb-3">會員登入</h1>
+      <label for="inputEmail" class="">帳號</label>
       <input
         id="inputEmail"
         v-model="user.username"
@@ -13,8 +11,8 @@
         placeholder="Email address"
         required
         autofocus
-      >
-      <label for="inputPassword" class="sr-only">Password</label>
+      />
+      <label for="inputPassword" class="">密碼</label>
       <input
         id="inputPassword"
         v-model="user.password"
@@ -22,21 +20,17 @@
         class="form-control"
         placeholder="Password"
         required
-      >
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
-        登入
+      />
+
+      <button class="btn btn-lg btn-block" type="submit">登入</button>
+      <button class="btn btn-lg btn-block" type="button">
+        <router-link to="/"> 回首頁 </router-link>
       </button>
     </form>
   </div>
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -44,7 +38,6 @@ export default {
         username: '',
         password: '',
       },
-
     };
   },
   methods: {
@@ -63,12 +56,10 @@ export default {
       });
     },
   },
-  created() {
-
-  },
+  created() {},
 };
 </script>
 
 <style scope lang="scss">
-@import '../assets/login.scss'
+@import "../assets/login.scss";
 </style>

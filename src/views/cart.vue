@@ -195,11 +195,13 @@
         </div>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Navbar from '../components/navbar.vue';
+import Footer from '../components/footer.vue';
 
 export default {
   data() {
@@ -219,7 +221,7 @@ export default {
     };
   },
   components: {
-    Navbar,
+    Navbar, Footer,
   },
   computed: {
     CartContent() {

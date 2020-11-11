@@ -94,14 +94,16 @@
         </div>
       </div>
     </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import Navbar from '../components/navbar.vue';
+import Footer from '../components/footer.vue';
 
 export default {
-  components: { Navbar },
+  components: { Navbar, Footer },
   data() {
     return {
       ProductInfo: null,

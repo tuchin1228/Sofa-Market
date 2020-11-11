@@ -170,7 +170,12 @@ a {
       img {
         transform: scale(1.1);
       }
+       .linkbox {
+        transform: translate(-50%, 0%);
+        visibility: visible;
+      }
     }
+
   }
 
   .titlebox {
@@ -272,12 +277,7 @@ a {
         }
       }
     }
-    &:hover {
-      .linkbox {
-        transform: translate(-50%, 0%);
-        visibility: visible;
-      }
-    }
+
   }
 }
 

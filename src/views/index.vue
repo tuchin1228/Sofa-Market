@@ -60,17 +60,20 @@
         </router-link>
       </div>
     </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import Slick from '../components/slick.vue';
 import Navbar from '../components/navbar.vue';
+import Footer from '../components/footer.vue';
 
 export default {
   components: {
     Slick,
     Navbar,
+    Footer,
   },
   data() {
     return {};

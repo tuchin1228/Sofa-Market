@@ -45,6 +45,10 @@ export default {
   }
   .contents {
     width: 100%;
+    h2 {
+      font-size: 1.5em;
+      margin: 1vh 0;
+    }
     h3 {
       font-size: 1.2em;
       letter-spacing: 1.5px;

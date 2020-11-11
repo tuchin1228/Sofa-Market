@@ -36,7 +36,6 @@ const routes = [
       path: 'order',
       name: 'Order',
       component: Order,
-      meta: { requiresAuth: true },
     },
     {
       path: 'coupon',

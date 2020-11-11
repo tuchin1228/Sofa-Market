@@ -143,45 +143,44 @@ export default {
       }
     }
   }
-  .previewbox {
-    z-index: 999;
-    .dialogBg {
-      left: 0;
-      top: 0;
-      height: 100vh;
-      width: 100%;
-      z-index: 99;
-      position: fixed;
-      background: #8c8c8c75;
-    }
-    .dialog {
-      position: fixed;
-      left: 50%;
-      top: 45%;
-      padding: 1vh 1vw;
-      border-radius: 5px;
-      transform: translate(-50%, -50%);
-      width: 1100px;
-      height: 500px;
-      background: white;
-      box-shadow: 6px 6px 15px #5656563d;
-      z-index: 1200;
-      > i {
-        position: absolute;
-        right: 2%;
-        top: 2%;
-        cursor: pointer;
-        padding: 5px 8px;
-        font-size: 1.2em;
-        border-radius: 100%;
-        color: rgb(68, 68, 68);
-        transition: 0.3s;
-        &:hover {
-          background: rgb(238, 238, 238);
+    .previewbox {
+      z-index: 999;
+      .dialogBg {
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        z-index: 99;
+        position: fixed;
+        background: #8c8c8c75;
+      }
+      .dialog {
+        position: fixed;
+        left: 50%;
+        top: 45%;
+        padding: 5vh 1vw 2vh 1vw;
+        border-radius: 5px;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        background: white;
+        box-shadow: 6px 6px 15px #5656563d;
+        z-index: 1200;
+        > i {
+          position: absolute;
+          right: 2%;
+          top: 2%;
+          cursor: pointer;
+          padding: 5px 8px;
+          font-size: 1.2em;
+          border-radius: 100%;
+          color: rgb(68, 68, 68);
+          transition: 0.3s;
+          &:hover {
+            background: rgb(238, 238, 238);
+          }
         }
       }
     }
-  }
 }
 
 @media all and (max-width: 767px) {
@@ -193,6 +192,12 @@ export default {
       .productCard {
         width: 300px;
         margin: 1vh 1vw;
+      }
+       .previewbox {
+        .dialog {
+          width: 95%;
+          top: 55%;
+        }
       }
       .empty {
         img {

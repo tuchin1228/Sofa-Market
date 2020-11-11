@@ -92,27 +92,90 @@
             <i class="fas fa-shopping-cart"></i> 補貨中
           </button>
         </div>
+        <div class="maybelove">
+          <h2>也許你也喜歡...</h2>
+          <ProductCard
+            v-for="item in maybefavor"
+            :key="item.id"
+            :productInfo="item"
+            @setPreviewProduct="getPreviewProduct"
+            @sendremoveID="getremoveID"
+          />
+        </div>
+        <transition
+          enter-active-class="animate__animated animate__fadeIn animate__faster"
+          leave-active-class="animate__animated animate__fadeOut animate__faster"
+        >
+          <div class="previewbox" v-if="showPreview === true">
+            <div class="dialogBg" @click="showPreview = false"></div>
+            <div class="dialog">
+              <i class="fas fa-times" @click="showPreview = false"></i>
+              <PreviewModal :previewData="PreviewProduct" />
+            </div>
+          </div>
+        </transition>
       </div>
     </div>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Navbar from '../components/navbar.vue';
 import Footer from '../components/footer.vue';
+import ProductCard from '../components/productCard.vue';
+import PreviewModal from '../components/previewModal.vue';
 
 export default {
-  components: { Navbar, Footer },
+  components: {
+    Navbar,
+    Footer,
+    ProductCard,
+    PreviewModal,
+  },
   data() {
     return {
       ProductInfo: null,
       ProductCount: 1,
+      showPreview: false,
+      favoriteID: [],
     };
+  },
+  computed: {
+    maybefavor() {
+      const vm = this;
+      const allproduct = vm.$store.getters.Allproducts.products;
+      const temparr = [];
+      const result = new Set();
+      const repeat = new Set();
+      for (let i = 0; i < 3; i += 1) {
+        const index = Math.floor(Math.random() * allproduct.length);
+        if (
+          allproduct[index].id !== vm.ProductInfo.id
+          && allproduct[index].is_enabled === true
+        ) {
+          temparr.push(allproduct[index]);
+        } else {
+          i -= 1;
+        }
+        temparr.forEach((item) => (result.has(item) ? repeat.add(item) : result.add(item)));
+        if (i === 2 && result.size !== 3) {
+          i -= 1;
+        }
+      }
+
+      return result;
+    },
   },
   created() {
     const id = this.$route.params.productid;
     this.getProductInfo(id);
+    this.$store.dispatch('getAll');
+  },
+  watch: {
+    '$route.params.productid': function () {
+      this.getProductInfo(this.$route.params.productid);
+    },
   },
   methods: {
     getProductInfo(id) {
@@ -153,6 +216,17 @@ export default {
       };
       vm.$store.dispatch('addToCart', { cartcontent, alertInfo });
     },
+    getPreviewProduct(item) {
+      this.PreviewProduct = item;
+      this.showPreview = true;
+    },
+    getremoveID(id) {
+      this.FavoriteProduct.forEach((item, index) => {
+        if (item.id === id) {
+          this.FavoriteProduct.splice(index, 1);
+        }
+      });
+    },
   },
 };
 </script>
@@ -175,9 +249,26 @@ export default {
     }
   }
   .contents {
+    position: relative;
     display: flex;
+    flex-wrap: wrap;
     .phoneimg {
       display: none;
+    }
+    .maybelove {
+      margin: 5vh 0;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      > h2 {
+        width: 100%;
+        background: #d7edfa;
+        text-align: center;
+        padding: 1vh 0;
+        color: #5386b3;
+        border-top: 2px solid #92cdff;
+      }
     }
     .left {
       width: 70%;
@@ -216,7 +307,7 @@ export default {
           width: 100%;
         }
       }
-      p.info{
+      p.info {
         margin: 2vh 0;
         letter-spacing: 2px;
         font-size: 1.1em;
@@ -229,7 +320,7 @@ export default {
         letter-spacing: 1.5px;
         font-size: 1.6em;
         font-weight: 500;
-        color:#58bbff;
+        color: #58bbff;
         span {
           border-bottom: 2px solid #d9efff;
         }
@@ -287,7 +378,7 @@ export default {
       .flexbox {
         display: flex;
         align-items: center;
-        .phoneselect{
+        .phoneselect {
           visibility: hidden;
         }
         h5 {
@@ -352,6 +443,45 @@ export default {
         }
       }
     }
+
+    .previewbox {
+      z-index: 999;
+      .dialogBg {
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        z-index: 99;
+        position: fixed;
+        background: #8c8c8c75;
+      }
+      .dialog {
+        position: fixed;
+        left: 50%;
+        top: 45%;
+        padding: 5vh 1vw 2vh 1vw;
+        border-radius: 5px;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        background: white;
+        box-shadow: 6px 6px 15px #5656563d;
+        z-index: 1200;
+        > i {
+          position: absolute;
+          right: 2%;
+          top: 2%;
+          cursor: pointer;
+          padding: 5px 8px;
+          font-size: 1.2em;
+          border-radius: 100%;
+          color: rgb(68, 68, 68);
+          transition: 0.3s;
+          &:hover {
+            background: rgb(238, 238, 238);
+          }
+        }
+      }
+    }
   }
 }
 
@@ -367,11 +497,18 @@ export default {
           width: 100%;
         }
       }
+      .previewbox {
+        .dialog {
+          width: 95%;
+          top: 55%;
+          max-width: 400px;
+        }
+      }
       .left {
         order: 2;
         width: 98%;
         margin: 0 auto;
-        .imgbox{
+        .imgbox {
           display: none;
         }
       }
@@ -384,7 +521,7 @@ export default {
             display: none;
           }
           .phoneselect {
-            visibility:visible;
+            visibility: visible;
             select {
               width: 100px;
             }
@@ -394,5 +531,4 @@ export default {
     }
   }
 }
-
 </style>

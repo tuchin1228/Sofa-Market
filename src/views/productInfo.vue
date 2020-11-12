@@ -159,11 +159,11 @@ export default {
           i -= 1;
         }
         temparr.forEach((item) => (result.has(item) ? repeat.add(item) : result.add(item)));
-        if (i === 2 && result.size !== 3) {
+        if (i === 3 && result.size !== 4) {
           i -= 1;
         }
       }
-
+      console.log(result);
       return result;
     },
   },

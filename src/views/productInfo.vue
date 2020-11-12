@@ -148,7 +148,7 @@ export default {
       const temparr = [];
       const result = new Set();
       const repeat = new Set();
-      for (let i = 0; i < 3; i += 1) {
+      for (let i = 0; i < 4; i += 1) {
         const index = Math.floor(Math.random() * allproduct.length);
         if (
           allproduct[index].id !== vm.ProductInfo.id
@@ -491,6 +491,9 @@ export default {
     max-width: 675px;
     .contents {
       flex-direction: column;
+      .maybelove{
+        order: 3;
+      }
       .phoneimg {
         display: block;
         img {

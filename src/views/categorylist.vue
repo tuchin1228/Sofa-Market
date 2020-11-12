@@ -143,6 +143,11 @@ export default {
     a {
       text-decoration: none;
     }
+    .productCard {
+      margin: 1.5vh 0vw;
+      width: 300px;
+      position: relative;
+    }
     .previewbox {
       z-index: 999;
       .dialogBg {

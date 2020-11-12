@@ -117,6 +117,11 @@ export default {
     letter-spacing: 1.5px;
     font-size: 2.5em;
   }
+    .productCard {
+      margin: 1.5vh 0vw;
+      width: 300px;
+      position: relative;
+    }
   .empty {
     margin-top: 5vh;
     width: 100%;

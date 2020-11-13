@@ -163,7 +163,6 @@ export default {
           i -= 1;
         }
       }
-      console.log(result);
       return result;
     },
   },
@@ -173,7 +172,7 @@ export default {
     this.$store.dispatch('getAll');
   },
   watch: {
-    '$route.params.productid': function () {
+    $route() {
       this.getProductInfo(this.$route.params.productid);
     },
   },

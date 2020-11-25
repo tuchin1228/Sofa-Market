@@ -6,40 +6,44 @@
       </button>
     </div>
     <table class="table mt-4">
-      <tr>
-        <th width="15%">分類</th>
-        <th width="35%">產品名稱</th>
-        <th width="10%">原價</th>
-        <th width="10%">售價</th>
-        <th width="15%">是否啟用</th>
-        <th width="15%">編輯</th>
-      </tr>
-      <tr v-for="item in productList" :key="item.id">
-        <td>{{ item.category }}</td>
-        <td>{{ item.title }}</td>
-        <td>{{ item.origin_price | currency }}</td>
-        <td>{{ item.price | currency }}</td>
-        <td>
-          <span v-if="item.is_enabled" class="text-success">啟用</span>
-          <span v-if="!item.is_enabled" class="text-danger">未啟用</span>
-        </td>
-        <td>
-          <button
-            class="btn btn-warning btn-sm mx-1"
-            @click="openModal(true, item)"
-          >
-            編輯
-          </button>
-          <button
-            class="btn btn-danger btn-sm"
-            @click="opendeleteModal(item.id)"
-          >
-            刪除
-          </button>
-        </td>
-      </tr>
+      <thead>
+        <tr>
+          <th width="15%">分類</th>
+          <th width="35%">產品名稱</th>
+          <th width="10%">原價</th>
+          <th width="10%">售價</th>
+          <th width="15%">是否啟用</th>
+          <th width="15%">編輯</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in productList" :key="item.id">
+          <td>{{ item.category }}</td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.origin_price | currency }}</td>
+          <td>{{ item.price | currency }}</td>
+          <td>
+            <span v-if="item.is_enabled" class="text-success">啟用</span>
+            <span v-if="!item.is_enabled" class="text-danger">未啟用</span>
+          </td>
+          <td>
+            <button
+              class="btn btn-warning btn-sm mx-1"
+              @click="openModal(true, item)"
+            >
+              編輯
+            </button>
+            <button
+              class="btn btn-danger btn-sm"
+              @click="opendeleteModal(item.id)"
+            >
+              刪除
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
-    <Page :pages="paginationData" @getpage="getProduct" />
+    <Pagenation :pages="paginationData" @getpage="getProduct" />
     <div
       id="productModal"
       class="modal fade bd-example-modal-lg"
@@ -50,7 +54,7 @@
     >
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-          <div class="modal-header  text-white" style="background:#99cfff">
+          <div class="modal-header text-white" style="background: #99cfff">
             <h5 id="exampleModalLabel" class="modal-title">
               <span>新增產品</span>
             </h5>
@@ -93,7 +97,6 @@
                   :src="tempProduct.imgUrl"
                   img="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=828346ed697837ce808cae68d3ddc3cf&auto=format&fit=crop&w=1350&q=80"
                   class="img-fluid"
-                  alt=""
                 />
               </div>
               <div class="col-sm-8">
@@ -267,11 +270,11 @@
 
 <script>
 import $ from 'jquery';
-import Page from '../components/pagenation.vue';
+import Pagenation from '@/components/Pagenation.vue';
 
 export default {
   components: {
-    Page,
+    Pagenation,
   },
   data() {
     return {
@@ -322,8 +325,8 @@ export default {
       this.tempdelete = id;
     },
     uploadFile() {
-      const uploadfile = this.$refs.files.files[0];
       const vm = this;
+      const uploadfile = vm.$refs.files.files[0];
       const formData = new FormData();
       formData.append('file-to-upload', uploadfile);
       vm.uploadstatus = true;
@@ -366,6 +369,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

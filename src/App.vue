@@ -2,14 +2,13 @@
   <div id="app">
     <Loading v-if ="isLoading" />
     <Alert />
-    <router-view></router-view>
+    <router-view ></router-view>
   </div>
 </template>
 
 <script>
-import 'animate.css';
-import Loading from './components/loading.vue';
-import Alert from './components/alert.vue';
+import Loading from '@/components/Loading.vue';
+import Alert from '@/components/Alert.vue';
 
 export default {
   components: {

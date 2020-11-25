@@ -1,0 +1,299 @@
+.contain {
+    width: 1240px;
+    min-height:calc(100vh - 180px);
+    margin: 90px auto 0 auto;
+    .breadcrumbs {
+      padding: 0.5vh 0;
+      border-bottom: 1px solid #dcdcdc;
+      color: #a9a9a9;
+    }
+    .breadcrumbs a {
+      color: #a9a9a9;
+      font-size: 1.1em;
+      letter-spacing: 1.2px;
+      &.disabled {
+        pointer-events: none;
+      }
+    }
+    .contents {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .contents .phoneimg {
+      display: none;
+    }
+    .contents .maybelove {
+      margin: 5vh 0;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .contents .maybelove > h2 {
+      width: 100%;
+      background: #d7edfa;
+      text-align: center;
+      padding: 1vh 0;
+      color: #5386b3;
+      border-top: 2px solid #92cdff;
+    }
+    .contents .left {
+      width: 70%;
+      padding: 1vh 0vw;
+    }
+    .contents .left table {
+      width: 100%;
+    }
+    .contents .left table tr td {
+      padding: 1vh 1vw;
+      letter-spacing: 2px;
+      font-size: 1.2em;
+      font-weight: 300;
+      color: rgb(59, 59, 59);
+      text-align: center;
+      border-right: 1px solid #dcdcdc;
+      border-bottom: 1px solid #dcdcdc;
+      span {
+        font-size: 0.7em;
+      }
+    }
+    .contents .left table tr td:first-child {
+      border-left: 1px solid #dcdcdc;
+    }
+    .contents .left table tr:first-child td {
+      border-top: 1px solid #dcdcdc;
+    }
+    .contents .left .imgbox {
+      text-align: center;
+      padding: 10px;
+      border: 1px solid #d8d8d8;
+      > img {
+        width: 100%;
+      }
+    }
+    .contents .left p.info {
+      margin: 2vh 0;
+      letter-spacing: 2px;
+      font-size: 1.1em;
+      font-weight: 300;
+      padding: 0 1vw;
+    }
+    .contents .left p.disc {
+      margin: 2vh 0;
+      text-align: center;
+      letter-spacing: 1.5px;
+      font-size: 1.6em;
+      font-weight: 500;
+      color: #58bbff;
+      span {
+        border-bottom: 2px solid #d9efff;
+      }
+    }
+    .contents .left h4 {
+      font-weight: 300;
+      font-size: 1.4em;
+      margin-top: 5vh;
+    }
+    .contents .left p.cont {
+      font-size: 1.2em;
+      padding: 0 1vw;
+      font-weight: 300;
+      letter-spacing: 1.5px;
+      span {
+        font-size: 0.8em;
+      }
+    }
+  
+    .contents .right {
+      padding: 3vh 1vw;
+      width: 30%;
+    }
+  
+    .contents .right h2 {
+      font-size: 1.5em;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+    }
+    .contents .right h3 {
+      font-size: 1.1em;
+      letter-spacing: 1.5px;
+      font-weight: 300;
+    }
+    .contents .right .price {
+      display: flex;
+      align-items: center;
+      margin: 2vh 0 0 0;
+    }
+    .contents .right h6 {
+      margin: 0 1vw;
+      font-size: 1em;
+      font-weight: 400;
+      text-decoration: line-through;
+      color: rgb(121, 121, 121);
+    }
+    .contents .right h4 {
+      font-weight: 400;
+      color: black;
+      font-size: 1em;
+      margin: 0;
+      span {
+        font-weight: 600;
+        font-size: 2.3em;
+      }
+    }
+    .contents .right .flexbox {
+      display: flex;
+      align-items: center;
+      .phoneselect {
+        visibility: hidden;
+      }
+      h5 {
+        margin: 0 10px 0 0;
+        font-weight: 300;
+        cursor: default;
+        letter-spacing: 1.2px;
+      }
+      .selectCount {
+        margin: 3vh 0;
+        border: 1px solid #bbbbbb;
+        width: fit-content;
+      }
+      .selectCount span {
+        padding: 0 10px;
+      }
+      .selectCount button {
+        outline: none;
+        &:hover {
+          background: rgb(172, 172, 172);
+        }
+      }
+      .selectCount button:nth-of-type(1) {
+        border: none;
+        border-right: 1px solid #cccccc;
+        padding: 0 10px;
+      }
+  
+      .selectCount button:nth-of-type(2) {
+        border: none;
+        border-left: 1px solid #cccccc;
+        padding: 0 10px;
+      }
+    }
+    .contents .right h4.calc {
+      text-align: right;
+      margin: 0.5vh 0;
+      font-weight: 300;
+      color: #989898;
+      letter-spacing: 1.5px;
+    }
+    .contents .right button.cart {
+      outline: none;
+      width: 100%;
+      text-align: center;
+      display: block;
+      border: none;
+      letter-spacing: 1.5px;
+      background: #58bbff;
+      color: #fff;
+      padding: 1vh 0;
+      transition: 0.3s;
+      &:hover {
+        background: #85ceff;
+      }
+    }
+    .contents .right button.enabled {
+      cursor: default;
+      background: #616161;
+      &:hover {
+        background: #616161;
+      }
+    }
+  
+    .contents .previewbox {
+      z-index: 999;
+    }
+    .contents .previewbox .dialogBg {
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 100%;
+      z-index: 99;
+      position: fixed;
+      background: #8c8c8c75;
+    }
+    .contents .previewbox .dialog {
+      position: fixed;
+      left: 50%;
+      top: 45%;
+      padding: 5vh 1vw 2vh 1vw;
+      border-radius: 5px;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      background: white;
+      box-shadow: 6px 6px 15px #5656563d;
+      z-index: 1200;
+    }
+    .contents .previewbox .dialog > i {
+      position: absolute;
+      right: 2%;
+      top: 2%;
+      cursor: pointer;
+      padding: 5px 8px;
+      font-size: 1.2em;
+      border-radius: 100%;
+      color: rgb(68, 68, 68);
+      transition: 0.3s;
+      &:hover {
+        background: rgb(238, 238, 238);
+      }
+    }
+  }
+  
+  @media all and (max-width: 1259px) {
+    .contain {
+      width: 100%;
+      max-width: 675px;
+      .contents {
+        flex-direction: column;
+      }
+      .contents .maybelove {
+        order: 3;
+      }
+      .contents .phoneimg {
+        display: block;
+        img {
+          width: 100%;
+        }
+      }
+      .contents .previewbox .dialog {
+        width: 95%;
+        top: 55%;
+        max-width: 400px;
+      }
+      .contents .left {
+        order: 2;
+        width: 98%;
+        margin: 0 auto;
+        .imgbox {
+          display: none;
+        }
+      }
+      .contents .right {
+        order: 1;
+        width: 100%;
+        .flexbox {
+          margin: 2vh 0;
+        }
+        .flexbox .selectCount {
+          display: none;
+        }
+        .flexbox .phoneselect {
+          visibility: visible;
+        }
+        .flexbox .phoneselect select {
+          width: 100px;
+        }
+      }
+    }
+  }

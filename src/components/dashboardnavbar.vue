@@ -10,7 +10,7 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-     <i class="fas fa-align-justify"></i>
+      <i class="fas fa-align-justify"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarsExample09">
       <ul class="navbar-nav mr-auto">
@@ -50,7 +50,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -79,32 +78,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-a {
-  &:hover {
-    text-decoration: none !important;
-  }
-}
-
-li.nav-item a.nav-link {
-  color: #235298 !important;
-  text-decoration: none;
-  font-weight: 400;
-  transition: 0.3s;
-
-  &:hover {
-    background: #bbe0ffa3;
-  }
-}
-
-li.nav-item .active {
-  background: #ffffffa3;
-}
-nav {
-  background: #ddeeff;
-  > a {
-    color: #052775e6;
-    padding: 0 10px 0 0;
-    font-size: 1.2em;
-  }
-}
+@import "@/assets/dashboardnavbar.scss";
 </style>

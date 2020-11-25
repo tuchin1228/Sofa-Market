@@ -51,15 +51,14 @@ export default {
           const { expired } = res.data;
           document.cookie = `hexToken=${token};expires=${new Date(expired)};`;
           vm.$store.dispatch('LoadingStatus', false);
-          this.$router.push('/dashboard/product');
+          vm.$router.push('/dashboard/product');
         }
       });
     },
   },
-  created() {},
 };
 </script>
 
 <style scope lang="scss">
-@import "../assets/login.scss";
+@import "@/assets/login.scss";
 </style>

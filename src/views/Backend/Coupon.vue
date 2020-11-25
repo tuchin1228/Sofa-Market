@@ -7,38 +7,45 @@
     </div>
 
     <table class="table mt-4">
-      <tr>
-        <th>名稱</th>
-        <th>優惠碼</th>
-        <th>折扣百分比</th>
-        <th>到期日</th>
-        <th>是否啟用</th>
-        <th>編輯</th>
-      </tr>
-      <tr v-for="(item, index) in AllCoupon" :key="index">
-        <td>{{ item.title }}</td>
-        <td>{{ item.code }}</td>
-        <td>{{ item.percent }}</td>
-        <td>{{ item.due_date }}</td>
-        <td>
-          <span v-if="item.is_enabled" class="text-success">啟用</span>
-          <span v-if="!item.is_enabled" class="text-danger">未啟用</span>
-        </td>
-        <td>
-          <button
-            class="btn btn-warning btn-sm mx-1"
-            @click="openModal(true, item)"
-          >
-            編輯
-          </button>
-          <button class="btn btn-danger btn-sm" @click="opendeleteModal(item)">
-            刪除
-          </button>
-        </td>
-      </tr>
+      <thead>
+        <tr>
+          <th>名稱</th>
+          <th>優惠碼</th>
+          <th>折扣百分比</th>
+          <th>到期日</th>
+          <th>是否啟用</th>
+          <th>編輯</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item, index) in AllCoupon" :key="index">
+          <td>{{ item.title }}</td>
+          <td>{{ item.code }}</td>
+          <td>{{ item.percent }}</td>
+          <td>{{ item.due_date }}</td>
+          <td>
+            <span v-if="item.is_enabled" class="text-success">啟用</span>
+            <span v-if="!item.is_enabled" class="text-danger">未啟用</span>
+          </td>
+          <td>
+            <button
+              class="btn btn-warning btn-sm mx-1"
+              @click="openModal(true, item)"
+            >
+              編輯
+            </button>
+            <button
+              class="btn btn-danger btn-sm"
+              @click="opendeleteModal(item)"
+            >
+              刪除
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
 
-    <Page :pages="paginationData" @getpage="getCoupon" />
+    <Pagenation :pages="paginationData" @getpage="getCoupon" />
     <div
       class="modal fade"
       id="couponModal"
@@ -49,7 +56,7 @@
     >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header" style="background: #90caff; color: white;">
+          <div class="modal-header" style="background: #90caff; color: white">
             <h5 class="modal-title" id="exampleModalLabel">設定優惠券</h5>
             <button
               type="button"
@@ -182,7 +189,7 @@
 
 <script>
 import $ from 'jquery';
-import Page from '../components/pagenation.vue';
+import Pagenation from '@/components/Pagenation.vue';
 
 export default {
   data() {
@@ -201,7 +208,7 @@ export default {
     };
   },
   components: {
-    Page,
+    Pagenation,
   },
   created() {
     this.getCoupon();
@@ -232,7 +239,7 @@ export default {
       const vm = this;
       let httpMethod = 'put';
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/admin/coupon/${vm.tempCoupon.id}`;
-      if (this.tempCoupon.percent >= 1 || this.tempCoupon.percent <= 99) {
+      if (vm.tempCoupon.percent >= 1 || vm.tempCoupon.percent <= 99) {
         if (vm.isEdit === false) {
           httpMethod = 'post';
           api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/admin/coupon`;
@@ -263,6 +270,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

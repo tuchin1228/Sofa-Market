@@ -1,17 +1,17 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/index.vue';
-import Dashboard from '../views/dashboard.vue';
-import Product from '../views/product.vue';
-import Login from '../views/login.vue';
-import Order from '../views/order.vue';
-import Categorylist from '../views/categorylist.vue';
-import ProductInfo from '../views/productInfo.vue';
-import Coupon from '../views/coupon.vue';
-import Cart from '../views/cart.vue';
-import Checkout from '../views/checkout.vue';
-import Favorite from '../views/favorite.vue';
-import Error from '../views/error.vue';
+import Home from '@/views/Frontend/Index.vue';
+import Dashboard from '@/views/Backend/Dashboard.vue';
+import Product from '@/views/Backend/Product.vue';
+import Login from '@/views/Frontend/Login.vue';
+import Order from '@/views/Backend/Order.vue';
+import Categorylist from '@/views/Frontend/Categorylist.vue';
+import ProductInfo from '@/views/Frontend/ProductInfo.vue';
+import Coupon from '@/views/Backend/Coupon.vue';
+import Cart from '@/views/Frontend/Cart.vue';
+import Checkout from '@/views/Frontend/Checkout.vue';
+import Favorite from '@/views/Frontend/Favorite.vue';
+import Error from '@/views/Frontend/Error.vue';
 
 Vue.use(VueRouter);
 

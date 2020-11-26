@@ -265,6 +265,28 @@
       color     : white;
       border-top: 1px solid rgb(136, 192, 255);
     }
+
+    tr:nth-child(n+2) td:last-child button {
+
+      margin        : 0 10px;
+      outline       : none;
+      background    : #5b9aff;
+      border        : none;
+      color         : white;
+      padding       : 2px 5px;
+      font-size     : 0.8em;
+      letter-spacing: 2px;
+      font-weight   : 300;
+      border-radius : 5px;
+      transition    : 0.3s;
+      box-shadow    : 0px 2px 0 #abd7ff;
+
+      &:hover {
+        background: rgb(158, 194, 235);
+        box-shadow: 0px 0px 0 transparent;
+        transform : translate(0px, 1px);
+      }
+    }
   }
 
   .couponDialog .dialog .sale {
@@ -285,8 +307,14 @@
     }
   }
 
-  .couponDialog .dialog .btnbox {
+  .couponDialog .dialog .ischeckout {
+    display        : flex;
+    justify-content: center;
+  }
+
+  .couponDialog .dialog .ischeckout .btnbox {
     margin-top: 1.5vh;
+    width     : 50%;
 
     button {
       width         : 100%;
@@ -302,10 +330,19 @@
       &:hover {
         background: #a8d1ff;
       }
+
+    }
+
+    &:last-child button {
+      background: #ff9696;
+
+      &:hover {
+        background: #ff8686;
+      }
     }
   }
 
-  .couponDialog .dialog>p.nosale {
+  .couponDialog .dialog .btnbox>p.nosale {
     text-align    : center;
     letter-spacing: 1.5px;
     color         : rgb(121, 121, 121);

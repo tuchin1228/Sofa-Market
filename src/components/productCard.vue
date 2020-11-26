@@ -56,7 +56,7 @@
           >了解更多</router-link
         >
         <div class="favor" @click="setLocalStorage(productInfo.id)">
-          <span v-if="checkfavor(productInfo.id)" class="fullfavor">已追蹤</span>
+          <span v-if="checkfavor(productInfo.id)" class="fullfavor">取消追蹤</span>
           <span v-else>追蹤</span>
         </div>
       </div>

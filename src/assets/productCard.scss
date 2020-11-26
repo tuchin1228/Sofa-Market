@@ -64,21 +64,25 @@ a {
       background   : white;
 
       span {
-        color         : rgb(255, 112, 112);
-        border        : 1px solid rgb(255, 112, 112);
-        padding       : 0 5px;
-        letter-spacing: 2px;
-        border-radius : 5px;
-        transition: .3s;
-        &:hover { 
+        color  : rgb(255, 112, 112);
+        border : 1px solid rgb(255, 112, 112);
+        padding: 0 5px;
+
+        border-radius: 5px;
+        transition   : .3s;
+
+        &:hover {
           background: rgb(255, 112, 112);
           color     : white;
         }
       }
 
       span.fullfavor {
-        background: rgb(255, 112, 112);
-        color     : white;
+        color: white;
+        background     : rgb(53, 175, 42);
+        border    : 1px solid rgb(53, 175, 42);
+
+        
       }
 
       // i {

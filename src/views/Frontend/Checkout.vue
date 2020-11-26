@@ -2,76 +2,105 @@
   <div>
     <Navbar />
     <div class="checkcontent">
-      <h2>確認訂單</h2>
-      <table class="ordertable">
-        <thead>
-          <tr>
-            <th width="30%">品名</th>
-            <th>單價</th>
-            <th>小計</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="item in orderInfo.products" :key="item.id">
-            <td>
-              <img :src="item.product.imgUrl" :alt="item.product.title" />
-              <p>
-                {{ item.product.title }}<br />數量：{{ item.qty }}
-                {{ item.product.unit }}
-              </p>
-            </td>
-            <td>
-              NT {{ item.product.price }} 元<br />
-              <span
-                v-if="item.product.price !== item.final_total"
-                style="color: red"
-                >(已套用優惠)</span
-              >
-            </td>
-            <td>NT {{ item.final_total }} 元</td>
-          </tr>
-          <tr>
-            <td>總計</td>
-            <td></td>
-            <td>NT {{ orderInfo.total }} 元</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="check" v-if="!orderInfo.is_paid">
+        <h2>確認訂單</h2>
+        <table class="ordertable">
+          <thead>
+            <tr>
+              <th width="40%">品名</th>
+              <th>單價</th>
+              <th>小計</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in orderInfo.products" :key="item.id">
+              <td>
+                <img :src="item.product.imgUrl" :alt="item.product.title" />
+                <p>
+                  {{ item.product.title }}<br />數量：{{ item.qty }}
+                  {{ item.product.unit }}
+                </p>
+              </td>
+              <td>
+                NT {{ item.product.price }} 元<br />
+                <span v-if="item.product.price !== item.final_total" style="color: red"
+                  >(已套用優惠)</span
+                >
+              </td>
+              <td>NT {{ item.final_total }} 元</td>
+            </tr>
+            <tr>
+              <td>總計</td>
+              <td></td>
+              <td>NT {{ orderInfo.total }} 元</td>
+            </tr>
+          </tbody>
+        </table>
 
-      <h2>訂購人資訊</h2>
-      <table class="userinfo">
-        <tbody>
-          <tr>
-            <td>Email</td>
-            <td>{{ orderInfo.user.email }}</td>
-          </tr>
-          <tr>
-            <td>姓名</td>
-            <td>{{ orderInfo.user.username }}</td>
-          </tr>
-          <tr>
-            <td>電話</td>
-            <td>{{ orderInfo.user.tel }}</td>
-          </tr>
-          <tr>
-            <td>收件人地址</td>
-            <td>{{ orderInfo.user.address }}</td>
-          </tr>
-          <tr>
-            <td>付款狀態</td>
-            <td>
-              <span v-if="!orderInfo.is_paid" style="color: red">尚未付款</span>
-              <span v-if="orderInfo.is_paid" style="color: #00bb00"
-                >完成付款</span
-              >
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <button @click="payOrder" v-if="!orderInfo.is_paid">確認付款</button>
-      <router-link to="/">
-        <button v-if="orderInfo.is_paid">繼續逛逛</button>
-      </router-link>
+        <h2>訂購人資訊</h2>
+        <table class="userinfo">
+          <tbody>
+            <tr>
+              <td>Email</td>
+              <td>{{ orderInfo.user.email }}</td>
+            </tr>
+            <tr>
+              <td>姓名</td>
+              <td>{{ orderInfo.user.username }}</td>
+            </tr>
+            <tr>
+              <td>電話</td>
+              <td>{{ orderInfo.user.tel }}</td>
+            </tr>
+            <tr>
+              <td>收件人地址</td>
+              <td>{{ orderInfo.user.address }}</td>
+            </tr>
+            <tr>
+              <td>付款狀態</td>
+              <td>
+                <span v-if="!orderInfo.is_paid" style="color: red">尚未付款</span>
+                <span v-if="orderInfo.is_paid" style="color: #00bb00">完成付款</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button @click="payOrder" v-if="!orderInfo.is_paid">確認付款</button>
+      </div>
+      <div class="finish" v-if="orderInfo.is_paid">
+        <h2>完成付款</h2>
+        <table class="userinfo">
+          <tbody>
+            <tr>
+              <td>Email</td>
+              <td>{{ orderInfo.user.email }}</td>
+            </tr>
+            <tr>
+              <td>姓名</td>
+              <td>{{ orderInfo.user.username }}</td>
+            </tr>
+            <tr>
+              <td>電話</td>
+              <td>{{ orderInfo.user.tel }}</td>
+            </tr>
+            <tr>
+              <td>收件人地址</td>
+              <td>{{ orderInfo.user.address }}</td>
+            </tr>
+            <tr>
+              <td>付款時間</td>
+              <td>{{ orderInfo.paid_date | totime }}</td>
+            </tr>
+            <tr>
+              <td>訂單金額</td>
+              <td>NT {{ orderInfo.total }} 元</td>
+            </tr>
+          </tbody>
+        </table>
+        <router-link to="/">
+          <button v-if="orderInfo.is_paid">繼續逛逛</button>
+        </router-link>
+      </div>
     </div>
     <Footer />
   </div>
@@ -122,6 +151,6 @@ export default {
 };
 </script>
 
-<style scoped lang="scss" >
+<style scoped lang="scss">
 @import "@/assets/checkout.scss";
 </style>

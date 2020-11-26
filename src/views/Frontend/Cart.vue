@@ -188,18 +188,22 @@
             <tr>
               <td>名稱</td>
               <td>折數</td>
+              <td>使用</td>
             </tr>
             <tr>
-              <td>coupon50</td>
+              <td><span id="coupon50">coupon50</span></td>
               <td>五折</td>
+              <td><button @click="copycoupon('coupon50')">Copy</button></td>
             </tr>
             <tr>
-              <td>coupon80</td>
+              <td><span id="coupon80">coupon80</span></td>
               <td>八折</td>
+              <td><button @click="copycoupon('coupon80')">Copy</button></td>
             </tr>
             <tr>
-              <td>coupon90</td>
+              <td><span id="coupon90">coupon90</span></td>
               <td>九折</td>
+              <td><button @click="copycoupon('coupon90')">Copy</button></td>
             </tr>
           </table>
 
@@ -207,14 +211,15 @@
             <p>原價{{ CartContent.total }}元</p>
             <h3>優惠價 {{ final_price }} 元</h3>
           </div>
-
-          <router-link class="btnbox" to="/categorylist" v-if="!final_price">
-            <button>再去逛逛</button>
-          </router-link>
-          <div class="btnbox">
-            <button @click="goCheckout">結帳去</button>
+          <div class="ischeckout">
+            <router-link class="btnbox" to="/categorylist" v-if="!final_price">
+              <button>再去逛逛</button>
+            </router-link>
+            <div class="btnbox">
+              <button @click="goCheckout">結帳去</button>
+              <p class="nosale" v-if="!final_price">(不使用可直接結帳)</p>
+            </div>
           </div>
-          <p class="nosale">(不使用可直接結帳)</p>
         </div>
       </div>
     </div>
@@ -256,6 +261,20 @@ export default {
     this.$store.dispatch('getCart');
   },
   methods: {
+    copycoupon(id) {
+      const TextRange = document.createRange();
+      TextRange.selectNode(document.getElementById(id));
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(TextRange);
+      document.execCommand('copy');
+      const alertInfo = {
+        isShow: true,
+        type: 'success',
+        content: '已複製優惠券',
+      };
+      this.$store.dispatch('showalerts', alertInfo);
+    },
     calculateProductCount(key, qty, oldId, id, title) {
       if (key === 'add' && qty < 10) {
         const alertInfo = {

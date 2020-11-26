@@ -204,7 +204,7 @@ export default {
       if (same.length === 0) {
         const cartcontent = {
           product_id: id,
-          qty: 1,
+          qty: vm.ProductCount,
         };
         const alertInfo = {
           isShow: true,

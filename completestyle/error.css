@@ -1,0 +1,42 @@
+.imgbox {
+  min-height: calc(100vh - 100px);
+  text-align: center;
+  position: relative;
+}
+
+.imgbox img {
+  margin-top: 20vh;
+}
+
+.imgbox a {
+  display: block;
+  margin: 1vh auto;
+  text-decoration: none;
+  background: #95e0ff;
+  width: 100px;
+  padding: 5px 0;
+  border-radius: 5px;
+  letter-spacing: 1.5px;
+  font-size: 1.2em;
+  color: white;
+  -webkit-box-shadow: 2px 2px 0 #83c5e2;
+          box-shadow: 2px 2px 0 #83c5e2;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.imgbox a:hover {
+  background: #a5e4ff;
+  -webkit-box-shadow: 2px 2px 0 transparent;
+          box-shadow: 2px 2px 0 transparent;
+  -webkit-transform: translate(1px, 1px);
+          transform: translate(1px, 1px);
+}
+
+@media all and (max-width: 768px) {
+  .imgbox img {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+/*# sourceMappingURL=error.css.map */

@@ -13,6 +13,7 @@ import store from './store';
 import currencyfilter from './filter/currency';
 import lastwordfilter from './filter/lastword';
 import datefilter from './filter/datefilt';
+import totime from './filter/totime';
 
 Vue.use(VueAxios, axios);
 Vue.config.productionTip = false;
@@ -20,6 +21,7 @@ axios.defaults.withCredentials = true;
 Vue.filter('currency', currencyfilter);
 Vue.filter('lastword', lastwordfilter);
 Vue.filter('datefilter', datefilter);
+Vue.filter('totime', totime);
 
 Object.keys(rules).forEach((rule) => {
   extend(rule, rules[rule]);

@@ -1,0 +1,22 @@
+table tr th {
+  text-align: center;
+}
+
+table tr td {
+  text-align: center;
+}
+
+table tr td ul {
+  padding: 0;
+}
+
+table tr td ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+}
+/*# sourceMappingURL=order.css.map */

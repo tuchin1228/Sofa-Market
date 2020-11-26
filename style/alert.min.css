@@ -1,2 +1,0 @@
-.alerts{z-index:1100;position:fixed;bottom:6%;right:-5%;padding:5px 15px;border-radius:5px;color:white;-webkit-transition:0.3s;transition:0.3s;-webkit-transform:scale(0);transform:scale(0);letter-spacing:1.5px;font-size:1.1em}.show{right:5%;-webkit-transform:scale(1) !important;transform:scale(1) !important}.success{background:#61b861;-webkit-box-shadow:3px 3px 3px #c0dcb9;box-shadow:3px 3px 3px #c0dcb9}.danger{background:#ff7e7e;-webkit-box-shadow:3px 3px 3px #d6bcbc;box-shadow:3px 3px 3px #d6bcbc}
-/*# sourceMappingURL=alert.min.css.map */

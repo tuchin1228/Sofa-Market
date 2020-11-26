@@ -30,7 +30,13 @@
               <div class="selectCount">
                 <button
                   @click="
-                    calculateProductCount('less', item.qty, item.product.id, item.product.title)
+                    calculateProductCount(
+                      'less',
+                      item.qty,
+                      item.id,
+                      item.product.id,
+                      item.product.title
+                    )
                   "
                 >
                   -
@@ -38,7 +44,13 @@
                 <span>{{ item.qty }}</span
                 ><button
                   @click="
-                    calculateProductCount('add', item.qty, item.product.id, item.product.title)
+                    calculateProductCount(
+                      'add',
+                      item.qty,
+                      item.id,
+                      item.product.id,
+                      item.product.title
+                    )
                   "
                 >
                   +
@@ -244,30 +256,31 @@ export default {
     this.$store.dispatch('getCart');
   },
   methods: {
-    calculateProductCount(key, qty, id, title) {
-      const vm = this;
+    calculateProductCount(key, qty, oldId, id, title) {
       if (key === 'add' && qty < 10) {
-        const cartcontent = {
-          product_id: id,
-          qty: qty + 1,
-        };
         const alertInfo = {
           isShow: true,
           type: 'success',
-          content: `${title} 成功更改數量`,
+          content: `${title} 更改數量`,
         };
-        vm.$store.dispatch('addToCart', { cartcontent, alertInfo });
+        const newQty = qty + 1;
+        const cartproduct = {
+          product_id: id,
+          qty: newQty,
+        };
+        this.$store.dispatch('changeCartQty', { oldId, cartproduct, alertInfo });
       } else if (key === 'less' && qty > 1) {
-        const cartcontent = {
-          product_id: id,
-          qty: qty - 1,
-        };
         const alertInfo = {
           isShow: true,
           type: 'success',
-          content: `${title} 成功更改數量`,
+          content: `${title} 更改數量`,
         };
-        vm.$store.dispatch('addToCart', { cartcontent, alertInfo });
+        const newQty = qty - 1;
+        const cartproduct = {
+          product_id: id,
+          qty: newQty,
+        };
+        this.$store.dispatch('changeCartQty', { oldId, cartproduct, alertInfo });
       }
     },
     deleteCartProduct(id, ProductTitle) {

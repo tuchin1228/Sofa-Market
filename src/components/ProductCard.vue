@@ -56,7 +56,7 @@
           >了解更多</router-link
         >
         <div class="favor" @click="setLocalStorage(productInfo.id)">
-          <span v-if="checkfavor(productInfo.id)"  class="fullfavor">已追蹤</span>
+          <span v-if="checkfavor(productInfo.id)" class="fullfavor">已追蹤</span>
           <span v-else>追蹤</span>
         </div>
       </div>
@@ -80,6 +80,11 @@ export default {
       previewData: {},
     };
   },
+  computed: {
+    CartContent() {
+      return this.$store.getters.CartContent;
+    },
+  },
   created() {
     this.createLocal();
   },
@@ -94,16 +99,34 @@ export default {
       return false;
     },
     ProductToCart(id, ProductTitle) {
-      const cartcontent = {
-        product_id: id,
-        qty: 1,
-      };
-      const alertInfo = {
-        isShow: true,
-        type: 'success',
-        content: `${ProductTitle} 加入購物車`,
-      };
-      this.$store.dispatch('addToCart', { cartcontent, alertInfo });
+      console.log('CartContent', id, this.CartContent);
+      const same = this.CartContent.carts.filter((item) => item.product_id === id);
+      if (same.length === 0) {
+        const cartcontent = {
+          product_id: id,
+          qty: 1,
+        };
+        const alertInfo = {
+          isShow: true,
+          type: 'success',
+          content: `${ProductTitle} 加入購物車`,
+        };
+        this.$store.dispatch('addToCart', { cartcontent, alertInfo });
+      } else {
+        const alertInfo = {
+          isShow: true,
+          type: 'success',
+          content: `${ProductTitle} 更改數量`,
+        };
+        const originQty = same[0].qty;
+        const oldId = same[0].id;
+        const newQty = originQty + 1;
+        const cartproduct = {
+          product_id: id,
+          qty: newQty,
+        };
+        this.$store.dispatch('changeCartQty', { oldId, cartproduct, alertInfo });
+      }
     },
     createLocal() {
       if (localStorage.getItem('id') == null) {

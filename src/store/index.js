@@ -47,29 +47,32 @@ export default new Vuex.Store({
     },
     getProduct({ commit }, page = 1) {
       commit('setLoadingStatus', true);
-      axios.get(`${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/products?page=${page}`).then(
-        (res) => {
+      axios
+        .get(
+          `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/products?page=${page}`,
+        )
+        .then((res) => {
           commit('setProduct', res.data);
           commit('setLoadingStatus', false);
-        },
-      );
+        });
     },
     getAll({ commit }) {
       commit('setLoadingStatus', true);
-      axios.get(`${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/products/all`).then(
-        (res) => {
+      axios
+        .get(`${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/products/all`)
+        .then((res) => {
           commit('setAllProduct', res.data);
           return res.data;
-        },
-      ).then((data) => {
-        const temparr = data.products;
-        const set = new Set();
-        const result = temparr.filter(
-          (item) => (!set.has(item.category) ? set.add(item.category) : false),
-        );
-        commit('setCategory', result);
-        commit('setLoadingStatus', false);
-      });
+        })
+        .then((data) => {
+          const temparr = data.products;
+          const set = new Set();
+          const result = temparr.filter(
+            (item) => (!set.has(item.category) ? set.add(item.category) : false),
+          );
+          commit('setCategory', result);
+          commit('setLoadingStatus', false);
+        });
     },
     getCart({ commit }) {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/cart`;
@@ -82,13 +85,22 @@ export default new Vuex.Store({
     addToCart(context, { cartcontent, alertInfo }) {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/cart`;
       context.commit('setLoadingStatus', true);
-      console.log('cartcontent', cartcontent);
-      axios.post(api, { data: cartcontent }).then((res) => {
-        console.log('res', res);
+      axios.post(api, { data: cartcontent }).then(() => {
         context.commit('setLoadingStatus', false);
         context.dispatch('showalerts', alertInfo);
         context.dispatch('getCart');
       });
+    },
+    changeCartQty(context, { oldId, cartproduct, alertInfo }) {
+      const deleteApi = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/cart/${oldId}`;
+      const changeApi = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/cart/`;
+      context.commit('setLoadingStatus', true);
+      axios.all([axios.delete(deleteApi), axios.post(changeApi, { data: cartproduct })])
+        .then(axios.spread(() => {
+          context.commit('setLoadingStatus', false);
+          context.dispatch('showalerts', alertInfo);
+          context.dispatch('getCart');
+        }));
     },
     removeFromCart(context, { id, alertInfo }) {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/cart/${id}`;
@@ -110,8 +122,7 @@ export default new Vuex.Store({
       commit('setLocalId', favoriteID);
     },
   },
-  modules: {
-  },
+  modules: {},
   getters: {
     products: (state) => state.products,
     Allproducts: (state) => state.Allproducts,

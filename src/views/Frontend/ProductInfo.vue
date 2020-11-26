@@ -7,9 +7,7 @@
         /
         <router-link to="/categorylist">所有商品</router-link>
         /
-        <router-link
-          :to="{ path: `/categorylist`, query: ProductInfo.category }"
-        >
+        <router-link :to="{ path: `/categorylist`, query: ProductInfo.category }">
           {{ ProductInfo.category }}
         </router-link>
       </div>
@@ -83,11 +81,7 @@
           </div>
 
           <h4 class="calc">小計:$ {{ ProductInfo.price * ProductCount }}</h4>
-          <button
-            class="cart"
-            @click="ProductToCart"
-            v-if="ProductInfo.is_enabled"
-          >
+          <button class="cart" @click="ProductToCart(ProductInfo.id)" v-if="ProductInfo.is_enabled">
             <i class="fas fa-shopping-cart"></i> 放入購物車
           </button>
           <button class="cart enabled" v-if="!ProductInfo.is_enabled">
@@ -153,10 +147,7 @@ export default {
       const repeat = new Set();
       for (let i = 0; i < 4; i += 1) {
         const index = Math.floor(Math.random() * allproduct.length);
-        if (
-          allproduct[index].id !== vm.ProductInfo.id
-          && allproduct[index].is_enabled === true
-        ) {
+        if (allproduct[index].id !== vm.ProductInfo.id && allproduct[index].is_enabled === true) {
           temparr.push(allproduct[index]);
         } else {
           i -= 1;
@@ -167,6 +158,9 @@ export default {
         }
       }
       return result;
+    },
+    CartContent() {
+      return this.$store.getters.CartContent;
     },
   },
   created() {
@@ -184,9 +178,7 @@ export default {
       const vm = this;
       vm.$store.dispatch('LoadingStatus', true);
       vm.$http
-        .get(
-          `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/product/${id}`,
-        )
+        .get(`${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/product/${id}`)
         .then((res) => {
           if (res.data.success) {
             vm.ProductInfo = res.data.product;
@@ -205,18 +197,35 @@ export default {
         vm.ProductCount -= 1;
       }
     },
-    ProductToCart() {
+    ProductToCart(id) {
       const vm = this;
-      const cartcontent = {
-        product_id: vm.ProductInfo.id,
-        qty: vm.ProductCount,
-      };
-      const alertInfo = {
-        isShow: true,
-        type: 'success',
-        content: `${vm.ProductInfo.title} 加入購物車`,
-      };
-      vm.$store.dispatch('addToCart', { cartcontent, alertInfo });
+      const same = this.CartContent.carts.filter((item) => item.product_id === id);
+
+      if (same.length === 0) {
+        const cartcontent = {
+          product_id: id,
+          qty: 1,
+        };
+        const alertInfo = {
+          isShow: true,
+          type: 'success',
+          content: `${vm.ProductInfo.title} 加入購物車`,
+        };
+        this.$store.dispatch('addToCart', { cartcontent, alertInfo });
+      } else {
+        const alertInfo = {
+          isShow: true,
+          type: 'success',
+          content: `${vm.ProductInfo.title} 更改數量`,
+        };
+        const oldId = same[0].id;
+        const newQty = vm.ProductCount;
+        const cartproduct = {
+          product_id: id,
+          qty: newQty,
+        };
+        this.$store.dispatch('changeCartQty', { oldId, cartproduct, alertInfo });
+      }
     },
     getPreviewProduct(item) {
       this.PreviewProduct = item;

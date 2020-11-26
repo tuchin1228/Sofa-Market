@@ -27,13 +27,13 @@
   font-weight: 500;
   padding: 5px 0;
   color: white;
-  background: #96c7ff;
+  background: #0082de;
 }
 
 .cartcontent > table tr td {
   text-align: center;
   padding: 10px 0;
-  border-bottom: 1px solid #96c7ff;
+  border-bottom: 1px solid #0082de;
 }
 
 .cartcontent > table tr td:first-child {
@@ -251,7 +251,7 @@
 .cartcontent .couponDialog .dialog .flb button {
   margin: 0 10px;
   outline: none;
-  background: #5b9aff;
+  background: #0082de;
   border: none;
   color: white;
   padding: 3px 8px;
@@ -282,24 +282,24 @@
   color: #5d5d5d;
   font-weight: 300;
   font-size: 1.1em;
-  border-bottom: 1px solid #88c0ff;
-  border-right: 1px solid #88c0ff;
+  border-bottom: 1px solid #0082de;
+  border-right: 1px solid #0082de;
 }
 
 .cartcontent .couponDialog .dialog table tr td:first-child {
-  border-left: 1px solid #88c0ff;
+  border-left: 1px solid #0082de;
 }
 
 .cartcontent .couponDialog .dialog table tr:first-child td {
-  background: #96c7ff;
+  background: #0082de;
   color: white;
-  border-top: 1px solid #88c0ff;
+  border-top: 1px solid #0082de;
 }
 
 .cartcontent .couponDialog .dialog table tr:nth-child(n+2) td:last-child button {
   margin: 0 10px;
   outline: none;
-  background: #5b9aff;
+  background: #0082de;
   border: none;
   color: white;
   padding: 2px 5px;
@@ -356,7 +356,7 @@
   outline: none;
   border: none;
   padding: 5px 0;
-  background: #96c7ff;
+  background: #5dbcff;
   color: white;
   letter-spacing: 1.5px;
   font-size: 1.1em;

@@ -7,7 +7,7 @@
       <div class="list">
         <div class="empty" v-if="FavoriteProduct.length === 0">
           <h3><span>目前無願望清單</span></h3>
-          <p><span>點擊商品旁愛心，即可加入願望清單</span></p>
+          <p><span>點擊「追蹤」，即可加入願望清單</span></p>
           <img src="@/assets/img/favor.png" alt="目前無願望清單" />
         </div>
         <h2 v-if="FavoriteProduct.length !== 0">願望清單</h2>

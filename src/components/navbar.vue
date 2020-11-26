@@ -46,11 +46,11 @@
                 <i class="fas fa-times"></i>
               </button>
             </div>
-            <router-link to="/cart" v-if="CartContent.length !== 0">
+            <router-link to="/cart" v-if="CartContent && CartContent.length !== 0">
               <button class="checkout">前往結帳</button>
             </router-link>
-            <p v-if="CartContent.length == 0">購物車沒有東西!</p>
-            <router-link to="/categorylist" v-if="CartContent.length == 0">
+            <p v-if="CartContent && CartContent.length == 0">購物車沒有東西!</p>
+            <router-link to="/categorylist" v-if="CartContent && CartContent.length == 0">
               <button class="checkout">前往購物</button>
             </router-link>
           </div>

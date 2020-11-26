@@ -25,7 +25,7 @@
               <span
                 v-if="item.product.price !== item.final_total"
                 style="color: red"
-                >(以套用優惠)</span
+                >(已套用優惠)</span
               >
             </td>
             <td>NT {{ item.final_total }} 元</td>

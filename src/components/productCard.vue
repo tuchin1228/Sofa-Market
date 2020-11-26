@@ -1,8 +1,6 @@
 <template>
   <div class="productCard animate__animated animate__fadeIn">
-    <router-link
-      :to="{ name: 'ProductInfo', params: { productid: productInfo.id } }"
-    >
+    <router-link :to="{ name: 'ProductInfo', params: { productid: productInfo.id } }">
       <div class="imgbox">
         <img :src="productInfo.imgUrl" :alt="productInfo.title" />
         <div class="soldoutbox" v-if="!productInfo.is_enabled">
@@ -47,18 +45,20 @@
 
     <span class="categorySpan">{{ productInfo.category | lastword }}</span>
     <div class="titlebox">
-      <router-link
-        :to="{ name: 'ProductInfo', params: { productid: productInfo.id } }"
-      >
+      <router-link :to="{ name: 'ProductInfo', params: { productid: productInfo.id } }">
         <p>
-          {{ productInfo.title }}<br />售價 NT.{{
-            productInfo.price | currency
-          }}
+          {{ productInfo.title }} <br />
+          NT.{{ productInfo.price | currency }}
         </p></router-link
       >
-      <div class="favor" @click="setLocalStorage(productInfo.id)">
-        <i class="fas fa-heart" v-if="checkfavor(productInfo.id)"></i>
-        <i class="far fa-heart" v-else></i>
+      <div class="right">
+        <router-link :to="{ name: 'ProductInfo', params: { productid: productInfo.id } }"
+          >了解更多</router-link
+        >
+        <div class="favor" @click="setLocalStorage(productInfo.id)">
+          <span v-if="checkfavor(productInfo.id)"  class="fullfavor">已追蹤</span>
+          <span v-else>追蹤</span>
+        </div>
       </div>
     </div>
   </div>

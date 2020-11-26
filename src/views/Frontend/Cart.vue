@@ -8,6 +8,7 @@
           <tr>
             <th width="30%">品名</th>
             <th>單價</th>
+            <th>數量</th>
             <th>小計</th>
             <th>刪除</th>
           </tr>
@@ -23,25 +24,42 @@
             </td>
             <td>
               NT {{ item.product.price }} 元<br />
-              <span v-if="item.total !== item.final_total" style="color: red"
-                >(以套用優惠)</span
-              >
+              <span v-if="item.total !== item.final_total" style="color: red">(以套用優惠)</span>
+            </td>
+            <td>
+              <div class="selectCount">
+                <button
+                  @click="
+                    calculateProductCount('less', item.qty, item.product.id, item.product.title)
+                  "
+                >
+                  -
+                </button>
+                <span>{{ item.qty }}</span
+                ><button
+                  @click="
+                    calculateProductCount('add', item.qty, item.product.id, item.product.title)
+                  "
+                >
+                  +
+                </button>
+              </div>
             </td>
             <td>NT {{ item.final_total }} 元</td>
             <td>
-              <button
-                class="deleteCart"
-                @click="deleteCartProduct(item.id, item.product.title)"
-              >
+              <button class="deleteCart" @click="deleteCartProduct(item.id, item.product.title)">
                 刪除
               </button>
             </td>
           </tr>
           <tr v-if="CartContent.carts.length == 0">
-            <td colspan="4" style="display: table-cell">購物車沒有東西!</td>
+            <td colspan="5" style="display: table-cell">
+              購物車沒有東西! <br /><router-link to="/categorylist">立即選購</router-link>
+            </td>
           </tr>
           <tr>
             <td>總 計</td>
+            <td></td>
             <td></td>
             <td>NT {{ CartContent.total }} 元</td>
             <td></td>
@@ -56,7 +74,7 @@
           <div class="inputbox leftinput">
             <validation-provider rules="required" v-slot="{ errors, classes }">
               <div class="textbox">
-                <label for="username">收件人姓名</label>
+                <label for="username">收件人姓名*</label>
                 <input
                   id="username"
                   type="text"
@@ -75,7 +93,7 @@
               v-slot="{ classes }"
             >
               <div class="textbox">
-                <label for="tel">收件人電話</label>
+                <label for="tel">收件人電話*</label>
                 <input
                   id="tel"
                   type="text"
@@ -91,7 +109,7 @@
             </validation-provider>
             <validation-provider rules="required" v-slot="{ errors, classes }">
               <div class="textbox">
-                <label for="address">收件人地址</label>
+                <label for="address">收件人地址*</label>
                 <input
                   id="address"
                   type="text"
@@ -108,12 +126,9 @@
           </div>
 
           <div class="inputbox rightinput">
-            <validation-provider
-              rules="required|email"
-              v-slot="{ errors, classes }"
-            >
+            <validation-provider rules="required|email" v-slot="{ errors, classes }">
               <div class="textbox">
-                <label for="email">Email</label>
+                <label for="email">Email*</label>
                 <input
                   id="email"
                   type="email"
@@ -127,10 +142,7 @@
                 <span class="invalid-feedback">{{ errors[0] }}</span>
               </div>
             </validation-provider>
-            <validation-provider
-              :rules="{ required: false }"
-              v-slot="{ errors, classes }"
-            >
+            <validation-provider :rules="{ required: false }" v-slot="{ errors, classes }">
               <div class="textbox">
                 <label for="message">備註</label>
                 <input
@@ -167,17 +179,18 @@
             </tr>
             <tr>
               <td>coupon50</td>
-              <td>50</td>
+              <td>五折</td>
             </tr>
             <tr>
               <td>coupon80</td>
-              <td>80</td>
+              <td>八折</td>
             </tr>
             <tr>
               <td>coupon90</td>
-              <td>90</td>
+              <td>九折</td>
             </tr>
           </table>
+
           <div class="sale" v-if="final_price">
             <p>原價{{ CartContent.total }}元</p>
             <h3>優惠價 {{ final_price }} 元</h3>
@@ -231,6 +244,32 @@ export default {
     this.$store.dispatch('getCart');
   },
   methods: {
+    calculateProductCount(key, qty, id, title) {
+      const vm = this;
+      if (key === 'add' && qty < 10) {
+        const cartcontent = {
+          product_id: id,
+          qty: qty + 1,
+        };
+        const alertInfo = {
+          isShow: true,
+          type: 'success',
+          content: `${title} 成功更改數量`,
+        };
+        vm.$store.dispatch('addToCart', { cartcontent, alertInfo });
+      } else if (key === 'less' && qty > 1) {
+        const cartcontent = {
+          product_id: id,
+          qty: qty - 1,
+        };
+        const alertInfo = {
+          isShow: true,
+          type: 'success',
+          content: `${title} 成功更改數量`,
+        };
+        vm.$store.dispatch('addToCart', { cartcontent, alertInfo });
+      }
+    },
     deleteCartProduct(id, ProductTitle) {
       const alertInfo = {
         isShow: true,

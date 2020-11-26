@@ -82,7 +82,9 @@ export default new Vuex.Store({
     addToCart(context, { cartcontent, alertInfo }) {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_USERPATH}/cart`;
       context.commit('setLoadingStatus', true);
-      axios.post(api, { data: cartcontent }).then(() => {
+      console.log('cartcontent', cartcontent);
+      axios.post(api, { data: cartcontent }).then((res) => {
+        console.log('res', res);
         context.commit('setLoadingStatus', false);
         context.dispatch('showalerts', alertInfo);
         context.dispatch('getCart');

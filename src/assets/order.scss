@@ -1,18 +1,21 @@
 table {
-    tr {
-      th {
-        text-align: center;
-      }
-      td {
-        text-align: center;
-      }
-      td ul {
-        padding: 0;
-      }
-      td ul li {
-        display: flex;
-        justify-content: space-between;
-        list-style: none;
-      }
+  tr {
+    th {
+      text-align: center;
+    }
+
+    td {
+      text-align: center;
+    }
+
+    td ul {
+      padding: 0;
+    }
+
+    td ul li {
+      display        : flex;
+      justify-content: space-between;
+      list-style     : none;
     }
   }
+}

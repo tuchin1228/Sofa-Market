@@ -3,20 +3,6 @@
     <Navbar />
     <div class="contain">
       <Slick />
-      <div class="breadcrumbs">
-        <router-link to="/">首頁</router-link>
-        /
-        <a
-          href=""
-          :class="{ disabled: categoryKey == 'All' }"
-          @click.prevent="categoryKey = 'All'"
-          >所有商品</a
-        >
-        /
-        <a href="" v-if="categoryKey !== 'All'" class="disabled">{{
-          categoryKey
-        }}</a>
-      </div>
 
       <div class="menu">
         <ul>

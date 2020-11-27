@@ -23,9 +23,7 @@
       />
 
       <button class="btn btn-lg btn-block" type="submit">登入</button>
-      <button class="btn btn-lg btn-block" type="button">
-        <router-link to="/"> 回首頁 </router-link>
-      </button>
+      <router-link to="/" class="btn btn-lg btn-block"> 回首頁 </router-link>
     </form>
   </div>
 </template>

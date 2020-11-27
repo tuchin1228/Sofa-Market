@@ -69,10 +69,17 @@
   font-weight: 600;
   margin     : 2vh 0;
 
-  a {
-    color          : white;
-    text-decoration: none;
+  &:hover {
+
+    color     : white;
+    background: #9ac8e9;
   }
+}
+
+.form-signin a {
+  color          : white;
+  text-decoration: none;
+  background : #afdeff;
 
   &:hover {
 
@@ -80,6 +87,9 @@
     background: #9ac8e9;
   }
 }
+
+
+
 
 @keyframes gradient {
   0% {

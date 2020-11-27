@@ -3,7 +3,7 @@
     <Navbar />
     <div class="checkcontent">
       <div class="check" v-if="!orderInfo.is_paid">
-        <h2>確認訂單</h2>
+        <h2><span>確</span>認訂單</h2>
         <table class="ordertable">
           <thead>
             <tr>
@@ -37,7 +37,7 @@
           </tbody>
         </table>
 
-        <h2>訂購人資訊</h2>
+        <h2><span>訂</span>購人資訊</h2>
         <table class="userinfo">
           <tbody>
             <tr>
@@ -68,7 +68,7 @@
         <button @click="payOrder" v-if="!orderInfo.is_paid">確認付款</button>
       </div>
       <div class="finish" v-if="orderInfo.is_paid">
-        <h2>完成付款</h2>
+        <h2><span>完</span>成付款</h2>
         <table class="userinfo">
           <tbody>
             <tr>

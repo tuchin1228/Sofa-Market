@@ -2,7 +2,7 @@
   <div>
     <Navbar />
     <div class="cartcontent">
-      <h2>購物車</h2>
+      <h2><span>購</span>物車</h2>
       <table>
         <thead>
           <tr>
@@ -79,7 +79,7 @@
         </tbody>
       </table>
 
-      <h2>訂購人資訊</h2>
+      <h2><span>訂</span>購人資訊</h2>
 
       <validation-observer v-slot="{ invalid }">
         <div class="form">

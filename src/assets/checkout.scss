@@ -5,12 +5,17 @@
   min-height: calc(99vh - 100px);
 
   h2 {
+    margin        : 5vh 0 1vh 0;
     text-align    : center;
-    margin        : 5vh 0 0 0;
-    font-size     : 2em;
-    font-weight   : 600;
-    color         : rgb(42, 42, 42);
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
+    font-size     : 2.2em;
+    font-weight   : 500;
+    color         : #a8dcff;
+
+    span {
+      font-size: 1.4em;
+    }
+
   }
 
   table.ordertable {
@@ -26,13 +31,13 @@
     font-weight: 500;
     padding    : 5px 0;
     color      : white;
-    background : rgb(150, 199, 255);
+    background : #0082de;
   }
 
   table.ordertable tr td {
     text-align   : center;
     padding      : 10px 0;
-    border-bottom: 1px solid rgb(150, 199, 255);
+    border-bottom: 1px solid #0082de;
   }
 
   table.ordertable tr td:first-child {

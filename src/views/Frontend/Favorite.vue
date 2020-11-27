@@ -10,7 +10,7 @@
           <p><span>點擊「追蹤」，即可加入願望清單</span></p>
           <img src="@/assets/img/favor.png" alt="目前無願望清單" />
         </div>
-        <h2 v-if="FavoriteProduct.length !== 0">願望清單</h2>
+        <h2 v-if="FavoriteProduct.length !== 0"><span>願</span>望清單</h2>
         <ProductCard
           :productInfo="item"
           v-for="item in FavoriteProduct"

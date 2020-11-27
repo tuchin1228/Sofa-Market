@@ -5,12 +5,17 @@
   margin    : 1vh auto;
 
   >h2 {
+    margin        : 5vh 0 1vh 0;
     text-align    : center;
-    margin        : 5vh 0 0 0;
-    font-size     : 2em;
-    font-weight   : 600;
-    color         : rgb(42, 42, 42);
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
+    font-size     : 2.2em;
+    font-weight   : 500;
+    color         : #a8dcff;
+
+    span {
+      font-size: 1.4em;
+    }
+
   }
 
   >table {
@@ -261,7 +266,7 @@
     }
 
     tr:first-child td {
-      background:#0082de;
+      background: #0082de;
       color     : white;
       border-top: 1px solid #0082de;
     }

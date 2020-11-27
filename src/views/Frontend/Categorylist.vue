@@ -2,8 +2,7 @@
   <div>
     <Navbar />
     <div class="contain">
-      <Slick />
-
+      <h2><span>產</span>品列表</h2>
       <div class="menu">
         <ul>
           <li
@@ -55,7 +54,6 @@
 
 <script>
 import 'animate.css';
-import Slick from '@/components/Slick.vue';
 import Navbar from '@/components/Navbar.vue';
 import ProductCard from '@/components/ProductCard.vue';
 import PreviewModal from '@/components/PreviewModal.vue';
@@ -63,7 +61,7 @@ import Footer from '@/components/Footer.vue';
 
 export default {
   components: {
-    Slick,
+
     Navbar,
     ProductCard,
     PreviewModal,

@@ -20,7 +20,7 @@
             <img :src="ProductInfo.imgUrl" :alt="ProductInfo.title" />
           </div>
           <p class="info" style="margin-bottom: 5vh">{{ ProductInfo.desc }}</p>
-          <p class="disc"><span>規格說明</span></p>
+          <p class="disc"><span>規</span>格說明</p>
           <table>
             <tbody>
               <tr>
@@ -36,7 +36,7 @@
               </tr>
             </tbody>
           </table>
-          <p class="disc"><span>訂購方式</span></p>
+          <p class="disc"><span>訂</span>購方式</p>
           <h4>網路訂購</h4>
           <p class="cont">立即下單，5天內到貨(不含例假日)</p>
           <h4>電話訂購</h4>
@@ -49,6 +49,15 @@
             到店將有專人介紹，可選擇自行運送或公司配送<br />
             <span>店面位址:台南市北區沒有路87號</span><br />
             <span>營業時間:09:00 - 18:00</span>
+          </p>
+          <p class="disc"><span>常</span>見問題</p>
+          <p class="cont">
+            Q：<strong>請問可以退換貨嗎?</strong><br />
+            A：商品一經使用或組裝後，恕無法辦理退換貨
+          </p>
+          <p class="cont">
+            Q：<strong>住家入口太小能退貨嗎?</strong><br />
+            A：如配送、出入口、樓梯狹窄，請速洽線上客服，恕不接受空間限制搬運理由退換貨。
           </p>
         </div>
         <div class="right">

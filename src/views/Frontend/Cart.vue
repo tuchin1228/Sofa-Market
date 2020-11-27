@@ -6,11 +6,11 @@
       <table>
         <thead>
           <tr>
-            <th width="30%">品名</th>
-            <th>單價</th>
-            <th>數量</th>
+            <th width="35%">品名</th>
+            <!-- <th>單價</th> -->
+            <th width="20%">數量</th>
             <th>小計</th>
-            <th>刪除</th>
+            <th width="20%">刪除</th>
           </tr>
         </thead>
         <tbody>
@@ -18,14 +18,13 @@
             <td>
               <img :src="item.product.imgUrl" :alt="item.product.title" />
               <p>
-                {{ item.product.title }}<br />數量：{{ item.qty }}
-                {{ item.product.unit }}
+                {{ item.product.title }}<br />單價： ${{ item.product.price }}元
               </p>
             </td>
-            <td>
+            <!-- <td>
               NT {{ item.product.price }} 元<br />
               <span v-if="item.total !== item.final_total" style="color: red">(以套用優惠)</span>
-            </td>
+            </td> -->
             <td>
               <div class="selectCount">
                 <button
@@ -56,15 +55,35 @@
                   +
                 </button>
               </div>
+              <div class="phoneselect">
+                <select
+                  name=""
+                  id=""
+                  v-model="item.qty"
+                  @change="
+                    calculateProductCount(
+                      'select',
+                      item.qty,
+                      item.id,
+                      item.product.id,
+                      item.product.title
+                    )
+                  "
+                >
+                  <option :value="count" v-for="count in 10" :key="count">
+                    {{ count }}
+                  </option>
+                </select>
+              </div>
             </td>
-            <td>NT {{ item.final_total }} 元</td>
+            <td>${{ item.final_total }} 元</td>
             <td>
               <button class="deleteCart" @click="deleteCartProduct(item.id, item.product.title)">
                 刪除
               </button>
             </td>
           </tr>
-          <tr v-if="CartContent.carts.length == 0">
+          <tr v-if="CartContent.carts && CartContent.carts.length === 0">
             <td colspan="5" style="display: table-cell">
               購物車沒有東西! <br /><router-link to="/categorylist">立即選購</router-link>
             </td>
@@ -72,8 +91,7 @@
           <tr>
             <td>總 計</td>
             <td></td>
-            <td></td>
-            <td>NT {{ CartContent.total }} 元</td>
+            <td>$ {{ CartContent.total }} 元</td>
             <td></td>
           </tr>
         </tbody>
@@ -246,6 +264,7 @@ export default {
       couponcode: '',
       final_price: '',
       showCouponDialog: false,
+      ProductCount: 1,
     };
   },
   components: {
@@ -300,6 +319,18 @@ export default {
           qty: newQty,
         };
         this.$store.dispatch('changeCartQty', { oldId, cartproduct, alertInfo });
+      } else if (key === 'select') {
+        const alertInfo = {
+          isShow: true,
+          type: 'success',
+          content: `${title} 更改數量`,
+        };
+        const newQty = qty;
+        const cartproduct = {
+          product_id: id,
+          qty: newQty,
+        };
+        this.$store.dispatch('changeCartQty', { oldId, cartproduct, alertInfo });
       }
     },
     deleteCartProduct(id, ProductTitle) {
@@ -338,7 +369,7 @@ export default {
       });
     },
     submitInfo() {
-      if (this.CartContent.carts.length === 0) {
+      if (this.CartContent.carts && this.CartContent.carts.length === 0) {
         this.$store.dispatch('showalerts', {
           isShow: true,
           type: 'danger',

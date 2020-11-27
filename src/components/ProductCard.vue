@@ -65,14 +65,8 @@
 </template>
 
 <script>
-
 export default {
-  props: {
-    productInfo: {
-      type: Object,
-      require,
-    },
-  },
+  props: ['productInfo'],
   data() {
     return {
       favor: [],
@@ -98,7 +92,6 @@ export default {
       return false;
     },
     ProductToCart(id, ProductTitle) {
-      console.log('CartContent', id, this.CartContent);
       const same = this.CartContent.carts.filter((item) => item.product_id === id);
       if (same.length === 0) {
         const cartcontent = {

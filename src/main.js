@@ -2,6 +2,7 @@ import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import 'bootstrap';
+import animated from 'animate.css';
 import {
   ValidationObserver, ValidationProvider, extend, localize, configure,
 } from 'vee-validate';
@@ -15,6 +16,7 @@ import lastwordfilter from './filter/lastword';
 import datefilter from './filter/datefilt';
 import totime from './filter/totime';
 
+Vue.use(animated);
 Vue.use(VueAxios, axios);
 Vue.config.productionTip = false;
 axios.defaults.withCredentials = true;

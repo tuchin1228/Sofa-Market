@@ -53,7 +53,6 @@
 </template>
 
 <script>
-import 'animate.css';
 import Navbar from '@/components/Navbar.vue';
 import ProductCard from '@/components/ProductCard.vue';
 import PreviewModal from '@/components/PreviewModal.vue';

@@ -65,7 +65,6 @@
 </template>
 
 <script>
-import 'animate.css';
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 import 'swiper/css/swiper.css';
 

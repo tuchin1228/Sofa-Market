@@ -42,7 +42,6 @@
 </template>
 
 <script>
-import 'animate.css';
 import Slick from '@/components/Slick.vue';
 import Navbar from '@/components/Navbar.vue';
 import ProductCard from '@/components/ProductCard.vue';

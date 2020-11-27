@@ -126,7 +126,6 @@
 </template>
 
 <script>
-import 'animate.css';
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
 import ProductCard from '@/components/ProductCard.vue';

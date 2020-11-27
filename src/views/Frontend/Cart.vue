@@ -6,9 +6,9 @@
       <table>
         <thead>
           <tr>
-            <th width="35%">品名</th>
+            <th width="40%">品名</th>
             <!-- <th>單價</th> -->
-            <th width="20%">數量</th>
+            <th width="15%">數量</th>
             <th>小計</th>
             <th width="20%">刪除</th>
           </tr>
@@ -18,7 +18,7 @@
             <td>
               <img :src="item.product.imgUrl" :alt="item.product.title" />
               <p>
-                {{ item.product.title }}<br />單價： ${{ item.product.price }}元
+                {{ item.product.title }}<br />單價：${{ item.product.price }}元
               </p>
             </td>
             <!-- <td>

@@ -7,7 +7,6 @@
         <thead>
           <tr>
             <th width="40%">品名</th>
-            <!-- <th>單價</th> -->
             <th width="15%">數量</th>
             <th>小計</th>
             <th width="20%">刪除</th>
@@ -21,10 +20,7 @@
                 {{ item.product.title }}<br />單價：${{ item.product.price }}元
               </p>
             </td>
-            <!-- <td>
-              NT {{ item.product.price }} 元<br />
-              <span v-if="item.total !== item.final_total" style="color: red">(以套用優惠)</span>
-            </td> -->
+
             <td>
               <div class="selectCount">
                 <button

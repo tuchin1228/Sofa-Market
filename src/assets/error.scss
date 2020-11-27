@@ -1,12 +1,8 @@
 .imgbox {
 
-  min-height  : calc(100vh - 100px);
-  // position: absolute;
-  // top: 45%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
-  text-align  : center;
-  position    : relative;
+  min-height: calc(100vh - 100px);
+  text-align: center;
+  position  : relative;
 
   img {
     margin-top: 20vh;

@@ -50,12 +50,9 @@
         </p></router-link
       >
       <div class="right">
-        <router-link :to="{ name: 'ProductInfo', params: { productid: productInfo.id } }"
-          >了解更多</router-link
-        >
         <div class="favor" @click="setLocalStorage(productInfo.id)">
-          <span v-if="checkfavor(productInfo.id)" class="fullfavor">取消追蹤</span>
-          <span v-else>追蹤</span>
+          <i class="fas fa-heart" v-if="checkfavor(productInfo.id)"></i>
+          <i class="far fa-heart" v-else></i>
         </div>
       </div>
     </div>

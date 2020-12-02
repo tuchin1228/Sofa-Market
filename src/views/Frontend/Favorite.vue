@@ -8,6 +8,9 @@
         <div class="empty" v-if="FavoriteProduct.length === 0">
           <h3><span>目前無願望清單</span></h3>
           <p><span>點擊「追蹤」，即可加入願望清單</span></p>
+          <div class="link">
+            <router-link to="categorylist">立即選購</router-link>
+          </div>
           <img src="@/assets/img/favor.png" alt="目前無願望清單" />
         </div>
         <h2 v-if="FavoriteProduct.length !== 0"><span>願</span>望清單</h2>
@@ -19,7 +22,8 @@
           @sendremoveID="getremoveID"
         />
 
-        <div class="productCard"></div>
+        <router-link to="categorylist" class="continue"><span>繼續購物</span></router-link>
+
         <div class="productCard"></div>
         <div class="productCard"></div>
 

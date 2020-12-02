@@ -8,7 +8,6 @@
         </div>
         <div class="linkbox">
           <button
-            href=""
             @click.prevent="
               previewData = setPreviewProduct(productInfo);
               showPreview = true;
@@ -25,7 +24,6 @@
         </div>
         <div class="phonelinkbox" v-if="productInfo.is_enabled">
           <button
-            href=""
             @click.prevent="
               previewData = setPreviewProduct(productInfo);
               showPreview = true;

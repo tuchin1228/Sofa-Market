@@ -19,5 +19,5 @@
 </template>
 
 <style scoped lang="scss">
-@import "@/assets/footer.scss";
+@import "@/assets/scss/components/footer.scss";
 </style>

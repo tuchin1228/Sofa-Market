@@ -22,7 +22,9 @@
           @sendremoveID="getremoveID"
         />
 
-        <router-link to="categorylist" class="continue"><span>繼續購物</span></router-link>
+        <router-link to="categorylist" class="continue" v-if="FavoriteProduct.length !== 0"
+          ><span>繼續購物</span></router-link
+        >
 
         <div class="productCard"></div>
         <div class="productCard"></div>
@@ -100,5 +102,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/favorite.scss";
+@import "@/assets/scss/frontend/favorite.scss";
 </style>

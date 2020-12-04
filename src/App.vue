@@ -23,5 +23,5 @@ export default {
 </script>
 <style lang="scss">
 @import "~bootstrap/scss/bootstrap";
-@import "./assets/main.scss";
+@import "./assets/scss/base/_reset.scss";
 </style>

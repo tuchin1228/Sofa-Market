@@ -78,5 +78,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/dashboardnavbar.scss";
+@import "@/assets/scss/components/dashboardnavbar.scss";
 </style>

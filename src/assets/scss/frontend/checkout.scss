@@ -10,7 +10,7 @@
     letter-spacing: 2px;
     font-size     : 2.2em;
     font-weight   : 500;
-    color         : #a8dcff;
+    color         : #0c6eb3;
 
     span {
       font-size: 1.4em;
@@ -31,13 +31,13 @@
     font-weight: 500;
     padding    : 5px 0;
     color      : white;
-    background : #0082de;
+    background : #0c6eb3;
   }
 
   table.ordertable tr td {
     text-align   : center;
     padding      : 10px 0;
-    border-bottom: 1px solid #0082de;
+    border-bottom: 1px solid #0c6eb3;
   }
 
   table.ordertable tr td:first-child {
@@ -84,6 +84,7 @@
     width          : 100%;
     border         : 1px solid #96c7ff;
     padding        : 1vh 1vw;
+    background     : white;
 
     tr th {
       text-align : center;
@@ -113,7 +114,7 @@
   button {
     display       : block;
     width         : 100%;
-    max-width     : 400px;
+    width         : 200px;
     margin        : 0 auto;
     border        : none;
     padding       : 5px 0;
@@ -129,6 +130,11 @@
       box-shadow: 3px 3px 0 transparent;
       transform : translate(2px, 2px);
     }
+  }
+
+  .finish h2 i {
+    color: rgb(94, 218, 11);
+    font-size: 2em;
   }
 }
 
@@ -150,7 +156,6 @@
     }
 
     button {
-      width : 95%;
       margin: 1vh auto;
     }
   }

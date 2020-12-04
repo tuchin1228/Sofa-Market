@@ -34,5 +34,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/previewModal.scss";
+@import "@/assets/scss/components/previewModal.scss";
 </style>

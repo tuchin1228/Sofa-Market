@@ -251,5 +251,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/productInfo.scss";
+@import "@/assets/scss/frontend/productInfo.scss";
 </style>

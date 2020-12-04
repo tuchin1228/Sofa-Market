@@ -22,5 +22,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/error.scss";
+@import "@/assets/scss/frontend/error.scss";
 </style>

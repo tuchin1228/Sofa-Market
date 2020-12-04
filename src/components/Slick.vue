@@ -93,5 +93,5 @@ export default {
 </script>
 
 <style scoped lang="scss" >
-@import "@/assets/slick.scss";
+@import "@/assets/scss/components/slick.scss";
 </style>

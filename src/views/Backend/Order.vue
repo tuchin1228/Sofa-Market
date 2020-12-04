@@ -70,5 +70,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/order.scss";
+@import "@/assets/scss/backend/order.scss";
 </style>

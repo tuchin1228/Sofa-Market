@@ -165,5 +165,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/productCard.scss";
+@import "@/assets/scss/components/productCard.scss";
 </style>

@@ -392,5 +392,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/cart.scss";
+@import "@/assets/scss/frontend/cart.scss";
 </style>

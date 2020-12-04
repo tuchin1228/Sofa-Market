@@ -22,5 +22,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/alert.scss";
+@import "@/assets/scss/components/alert.scss";
 </style>

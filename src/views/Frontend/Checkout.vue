@@ -68,7 +68,7 @@
         <button @click="payOrder" v-if="!orderInfo.is_paid">確認付款</button>
       </div>
       <div class="finish" v-if="orderInfo.is_paid">
-        <h2><span>完</span>成付款</h2>
+        <h2><i class="fas fa-check-circle"></i><br><span>完</span>成付款</h2>
         <table class="userinfo">
           <tbody>
             <tr>
@@ -152,5 +152,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/checkout.scss";
+@import "@/assets/scss/frontend/checkout.scss";
 </style>

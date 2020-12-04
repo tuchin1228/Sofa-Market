@@ -103,5 +103,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/categorylist.scss";
+@import "@/assets/scss/frontend/categorylist.scss";
 </style>

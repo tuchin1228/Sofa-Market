@@ -5,5 +5,5 @@
 </template>
 
 <style scoped lang="scss">
-@import "@/assets/loading.scss";
+@import "@/assets/scss/components/loading.scss";
 </style>

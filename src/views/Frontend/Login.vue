@@ -58,5 +58,5 @@ export default {
 </script>
 
 <style scope lang="scss">
-@import "@/assets/login.scss";
+@import "@/assets/scss/frontend/login.scss";
 </style>

@@ -11,3 +11,8 @@ body {
 body::-webkit-scrollbar {
 	display: none;
 }
+
+table{
+	border-collapse: separate;
+	border-spacing: 0;
+}

@@ -1,7 +1,9 @@
+@import "../utils/_variables";
+
 .cartcontent {
   min-height: calc(99vh - 100px);
   padding   : 80px 0;
-  width     : 1240px;
+  width     : $width_lg;
   margin    : 1vh auto;
 
   >h2 {
@@ -10,7 +12,7 @@
     letter-spacing: 2px;
     font-size     : 2.2em;
     font-weight   : 500;
-    color         : #0c6eb3;
+    color         : $text_primary;
 
     span {
       font-size: 1.4em;
@@ -20,8 +22,6 @@
 
   >table {
     margin         : 2vh 0 3vh 0;
-    border-collapse: separate;
-    border-spacing : 0;
     width          : 100%;
 
     tr th {
@@ -30,13 +30,13 @@
       font-weight: 500;
       padding    : 5px 0;
       color      : white;
-      background : #0c6eb3;
+      background : $text_primary;
     }
 
     tr td {
       text-align   : center;
       padding      : 10px 0;
-      border-bottom: 1px solid #0c6eb3;
+      border-bottom: 1px solid $text_primary;
     }
 
     tr td:first-child {
@@ -234,7 +234,7 @@
   .couponDialog .dialog .flb button {
     margin        : 0 10px;
     outline       : none;
-    background    : #0c6eb3;
+    background    : $text_primary;
     border        : none;
     color         : white;
     padding       : 3px 8px;
@@ -261,25 +261,25 @@
       color        : #5d5d5d;
       font-weight  : 300;
       font-size    : 1.1em;
-      border-bottom: 1px solid #0c6eb3;
-      border-right : 1px solid #0c6eb3;
+      border-bottom: 1px solid $text_primary;
+      border-right : 1px solid $text_primary;
 
       &:first-child {
-        border-left: 1px solid #0c6eb3;
+        border-left: 1px solid $text_primary;
       }
     }
 
     tr:first-child td {
-      background: #0c6eb3;
+      background: $text_primary;
       color     : white;
-      border-top: 1px solid #0c6eb3;
+      border-top: 1px solid $text_primary;
     }
 
     tr:nth-child(n+2) td:last-child button {
 
       margin        : 0 10px;
       outline       : none;
-      background    : #0c6eb3;
+      background    : $text_primary;
       border        : none;
       color         : white;
       padding       : 2px 5px;

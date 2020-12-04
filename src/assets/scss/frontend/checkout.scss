@@ -1,6 +1,8 @@
+@import "../utils/_variables";
+
 .checkcontent {
   padding   : 80px 0;
-  width     : 800px;
+  width     : $width_sm;
   margin    : 1vh auto;
   min-height: calc(99vh - 100px);
 
@@ -10,7 +12,7 @@
     letter-spacing: 2px;
     font-size     : 2.2em;
     font-weight   : 500;
-    color         : #0c6eb3;
+    color         : $text_primary;
 
     span {
       font-size: 1.4em;
@@ -20,8 +22,6 @@
 
   table.ordertable {
     margin         : 2vh 0 3vh 0;
-    border-collapse: separate;
-    border-spacing : 0;
     width          : 100%;
   }
 
@@ -31,13 +31,13 @@
     font-weight: 500;
     padding    : 5px 0;
     color      : white;
-    background : #0c6eb3;
+    background : $text_primary;
   }
 
   table.ordertable tr td {
     text-align   : center;
     padding      : 10px 0;
-    border-bottom: 1px solid #0c6eb3;
+    border-bottom: 1px solid $text_primary;
   }
 
   table.ordertable tr td:first-child {
@@ -164,7 +164,7 @@
 @media all and (max-width: 1259px) and (min-width: 768px) {
   .checkcontent {
     width    : 98%;
-    max-width: 800px;
+    max-width: $width_sm;
 
     table tr th {
       width: 40%;

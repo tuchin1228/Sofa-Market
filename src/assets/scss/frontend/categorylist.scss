@@ -1,6 +1,8 @@
+@import "../utils/_variables";
+
 .contain {
   min-height: calc(100vh - 180px);
-  width     : 1240px;
+  width     : $width_lg;
   margin    : 85px auto 0 auto;
 
   >h2 {
@@ -9,7 +11,7 @@
     letter-spacing: 2px;
     font-size     : 2.2em;
     font-weight   : 500;
-    color         : #0c6eb3;
+    color         : $text_primary;
 
     span {
       font-size: 1.4em;
@@ -91,8 +93,8 @@
     padding       : 2px 1vw;
     font-size     : 1.1em;
     margin        : 0.5vh 0px;
-    border        : 1px solid #0c6eb3;
-    color         : #0c6eb3;
+    border        : 1px solid $text_primary;
+    color         : $text_primary;
     transition    : 0.3s;
     width         : 140px;
     text-align    : center;
@@ -100,8 +102,8 @@
     font-weight   : 300;
     background    : linear-gradient(to left,
         rgb(255, 255, 255) 50%,
-        #0c6eb3 50%,
-        #0c6eb3 100%);
+        $text_primary 50%,
+        $text_primary 100%);
     background-size    : 200%;
     background-position: 100%;
     cursor             : pointer;

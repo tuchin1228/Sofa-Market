@@ -1,4 +1,4 @@
-@import "../utils/_variables";
+@import "../utils/variables";
 
 .loginbg {
   background     : linear-gradient(-45deg, #fffd9c, #ffcaca, #beeeff, #aeffdd);
@@ -24,7 +24,7 @@
 
 .form-signin h1 {
   text-align    : center;
-  color         : #68acff;
+  color         : $text_primary;
   font-weight   : 600;
   font-size     : 2.2em;
   letter-spacing: 1.5px;
@@ -67,26 +67,26 @@
 
 .form-signin button {
   color      : white;
-  background : #afdeff;
+  background : $text_primary;
   font-weight: 600;
   margin     : 2vh 0;
 
   &:hover {
 
     color     : white;
-    background: #9ac8e9;
+    background:rgb(22, 114, 219);
   }
 }
 
 .form-signin a {
   color          : white;
   text-decoration: none;
-  background     : #afdeff;
+  background     :  $text_primary;
 
   &:hover {
 
     color     : white;
-    background: #9ac8e9;
+    background: rgb(22, 114, 219);
   }
 }
 

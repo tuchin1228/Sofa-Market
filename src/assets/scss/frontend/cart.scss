@@ -1,4 +1,4 @@
-@import "../utils/_variables";
+@import "../utils/variables";
 
 .cartcontent {
   min-height: calc(99vh - 100px);
@@ -155,18 +155,18 @@
     }
 
     button {
-      margin-top: 1.5vh;
+      margin: 1.5vh 25% 0 25%;
       display   : block;
       width     : 100%;
       border    : none;
-      background: #96c7ff;
+      background: $text_primary;
       color     : white;
       padding   : 5px 0;
       width     : 95%;
       transition: 0.3s;
 
       &:hover {
-        background: #a8d0ff;
+        background: rgb(22, 114, 219);
         transform : translate(2px, 2px);
       }
 

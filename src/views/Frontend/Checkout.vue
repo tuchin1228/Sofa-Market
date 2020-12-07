@@ -1,5 +1,5 @@
 <template>
-  <div class="checkout_bg">
+  <div>
     <Navbar />
     <div class="checkcontent">
       <div class="check" v-if="!orderInfo.is_paid">

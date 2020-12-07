@@ -21,8 +21,8 @@
   }
 
   >table {
-    margin         : 2vh 0 3vh 0;
-    width          : 100%;
+    margin: 2vh 0 3vh 0;
+    width : 100%;
 
     tr th {
       text-align : center;
@@ -124,6 +124,7 @@
     tr td .phoneselect {
       display: none;
     }
+
   }
 
 
@@ -140,7 +141,7 @@
 
     .inputbox {
       margin: 1vh 1vw;
-      flex  : 1;
+      width : 40%;
     }
 
     .inputbox .textbox {
@@ -155,24 +156,73 @@
     }
 
     button {
-      margin: 1.5vh 25% 0 25%;
-      display   : block;
-      width     : 100%;
-      border    : none;
-      background: $text_primary;
-      color     : white;
-      padding   : 5px 0;
-      width     : 95%;
-      transition: 0.3s;
+      display        : block;
+      width          : 150px;
+      line-height    : 30px;
+      background     :  #568bb1;
+      text-align     : center;
+      position       : relative;
+      text-decoration: none;
+      color          : #fff;
+      font-size      : 16px;
+      font-weight    : 500;
+      text-transform : uppercase;
+      letter-spacing : 2px;
+      border         : none;
 
-      &:hover {
-        background: rgb(22, 114, 219);
-        transform : translate(2px, 2px);
+      &:hover{
+        background: #659cc3;
       }
+      &:before,
+      &:after {
+        position  : absolute;
+        content   : "";
+        transition: all .25s;
+      }
+
+      &:before {
+        border-bottom: 2px solid #568bb1;
+        border-left  : 2px solid #568bb1;
+        width        : 10%;
+        height       : 33%;
+        left         : -6px;
+        bottom       : -6px;
+      }
+
+      &:after {
+        border-top  : 2px solid #568bb1;
+        border-right: 2px solid #568bb1;
+        width       : 10%;
+        height      : 33%;
+        top         : -6px;
+        right       : -6px;
+      }
+
+      &:hover:before {
+        width : calc(100% + 12px);
+        height: calc(100% + 12px);
+      }
+
+      &:hover:after {
+        width : calc(100% + 12px);
+        height: calc(100% + 12px);
+      }
+
 
       &[disabled] {
         box-shadow: none;
         background: gray;
+
+        &:before {
+          border-bottom: 2px solid gray;
+          border-left  : 2px solid gray;
+        }
+
+        &:after {
+          border-top  : 2px solid gray;
+          border-right: 2px solid gray;
+        }
+
       }
 
       &[disabled]:hover {
@@ -203,7 +253,6 @@
     padding      : 1vh 1vw;
     box-shadow   : 6px 6px 15px #5656563d;
     background   : white;
-    height       : 400px;
     left         : 50%;
     top          : 50%;
     transform    : translate(-50%, -50%);
@@ -386,8 +435,13 @@
       width: 90%;
     }
 
+    table tr:not(:last-child) td {
+      min-height: 150px;
+    }
+
     .couponDialog .dialog {
-      width: 95%;
+      width  : 95%;
+      padding: 1vh 5vw;
 
       .flb input {
         flex: 4;
@@ -396,10 +450,28 @@
       .flb button {
         flex: 1;
       }
+
+      table tr td {
+        padding: 8px 0;
+      }
     }
 
     .form {
       width: 100%;
+    }
+
+    .form .inputbox {
+      width : 95%;
+      margin: 0 1vw;
+    }
+
+    .form .inputbox .textbox {
+      margin : 0;
+      padding: 1vh 0;
+    }
+
+    .form button {
+      margin-top: 3vh;
     }
   }
 }

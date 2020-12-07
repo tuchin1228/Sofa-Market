@@ -1,24 +1,5 @@
 @import "../utils/variables";
-.checkout_bg{
-  background     : linear-gradient(-45deg, #fffd9c, #ffcaca, #beeeff, #aeffdd);
-  background-size: 400% 400%;
-  animation      : gradient 15s ease infinite;
-  width          : 100%;
-  height         : 100vh;
-}
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
 
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
 .checkcontent {
   padding   : 80px 0;
   width     : $width_sm;
@@ -40,8 +21,8 @@
   }
 
   table.ordertable {
-    margin         : 2vh 0 3vh 0;
-    width          : 100%;
+    margin: 2vh 0 3vh 0;
+    width : 100%;
   }
 
   table.ordertable tr th {
@@ -104,8 +85,9 @@
     border         : 1px solid #96c7ff;
     padding        : 1vh 1vw;
     background     : white;
-    box-shadow: 3px 3px 0 #96c7ff;
-    background: #ffffffa3;
+    box-shadow     : 3px 3px 0 #96c7ff;
+    background     : #ffffffa3;
+
     tr th {
       text-align : center;
       font-size  : 1.2em;
@@ -132,25 +114,67 @@
   }
 
   button {
-    display       : block;
-    width         : 100%;
-    width         : 200px;
-    margin        : 0 auto;
-    border        : none;
-    padding       : 5px 0;
-    letter-spacing: 1px;
-    font-size     : 1.2em;
-    background    : $text_primary;
-    color         : white;
-    transition    : 0.3s;
+    display        : block;
+    margin         : 0 auto;
+    width          : 150px;
+    line-height    : 30px;
+    background     : #568bb1;
+    text-align     : center;
+    position       : relative;
+    text-decoration: none;
+    color          : #fff;
+    font-size      : 16px;
+    font-weight    : 500;
+    text-transform : uppercase;
+    letter-spacing : 2px;
+    border         : none;
 
     &:hover {
-      background: rgb(22, 114, 219);
+      background: #659cc3;
     }
+
+    &:before,
+    &:after {
+      position  : absolute;
+      content   : "";
+      transition: all .25s;
+    }
+
+    &:before {
+      border-bottom: 2px solid #568bb1;
+      border-left  : 2px solid #568bb1;
+      width        : 10%;
+      height       : 33%;
+      left         : -6px;
+      bottom       : -6px;
+    }
+
+    &:after {
+      border-top  : 2px solid #568bb1;
+      border-right: 2px solid #568bb1;
+      width       : 10%;
+      height      : 33%;
+      top         : -6px;
+      right       : -6px;
+    }
+
+    &:hover:before {
+      width : calc(100% + 12px);
+      height: calc(100% + 12px);
+    }
+
+    &:hover:after {
+      width : calc(100% + 12px);
+      height: calc(100% + 12px);
+    }
+
+
+
   }
 
   .finish h2 i {
-    color: $text_primary;
+    color: #3aa20b;
+    ;
     font-size: 2em;
   }
 }
@@ -160,7 +184,7 @@
     width    : 98%;
     max-width: 675px;
 
-    table tr td:first-child {
+    table.ordertable tr td:first-child {
       flex-direction: column;
 
       img {
@@ -168,8 +192,13 @@
       }
 
       p {
+        margin   : 0;
         font-size: 1em;
       }
+    }
+
+    table tr:not(:last-child) td {
+      min-height: 150px;
     }
 
     button {

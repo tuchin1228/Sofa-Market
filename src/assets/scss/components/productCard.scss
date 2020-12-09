@@ -11,7 +11,7 @@ a {
 
   &:hover {
     .titlebox p {
-      color:$text_primary;
+      color: $text_primary;
     }
 
     .imgbox {
@@ -155,14 +155,17 @@ a {
 
 
 @media all and (max-width: 1259px) {
+
+  .productCard:hover {
+    .imgbox img {
+      transform: none;
+    }
+  }
+
   .productCard .imgbox .soldoutbox span {
     width: auto;
 
-    &:hover {
-      .imgbox img {
-        transform: scale(1);
-      }
-    }
+
   }
 
   .productCard .imgbox {
@@ -183,12 +186,14 @@ a {
         width         : 100%;
         border        : none;
         color         : white;
-        background    : #82c5ff;
+        background    : $text_primary;
         padding       : 4px 0;
         letter-spacing: 1.5px;
 
         &:first-child {
           border-right: 1px solid white;
+
+          background: #636363;
         }
       }
     }

@@ -119,7 +119,7 @@
     margin         : 0 auto;
     width          : 150px;
     line-height    : 30px;
-    background     : #568bb1;
+    background     : $text_primary;
     text-align     : center;
     position       : relative;
     text-decoration: none;
@@ -131,43 +131,10 @@
     border         : none;
 
     &:hover {
-      background: #659cc3;
+      background: $light_primary;
     }
 
-    &:before,
-    &:after {
-      position  : absolute;
-      content   : "";
-      transition: all .25s;
-    }
 
-    &:before {
-      border-bottom: 2px solid #568bb1;
-      border-left  : 2px solid #568bb1;
-      width        : 10%;
-      height       : 33%;
-      left         : -6px;
-      bottom       : -6px;
-    }
-
-    &:after {
-      border-top  : 2px solid #568bb1;
-      border-right: 2px solid #568bb1;
-      width       : 10%;
-      height      : 33%;
-      top         : -6px;
-      right       : -6px;
-    }
-
-    &:hover:before {
-      width : calc(100% + 12px);
-      height: calc(100% + 12px);
-    }
-
-    &:hover:after {
-      width : calc(100% + 12px);
-      height: calc(100% + 12px);
-    }
 
 
 
@@ -175,7 +142,6 @@
 
   .finish h2 i {
     color: #3aa20b;
-    ;
     font-size: 2em;
   }
 }

@@ -162,13 +162,13 @@ a {
       display   : block;
       width     : 100%;
       border    : none;
-      background: rgb(111, 178, 255);
+      background: $text_primary;
       color     : white;
       font-size : 1.2em;
       padding   : 0.5vh 0;
 
       &:hover {
-        background: rgb(135, 191, 255);
+        background: $light_primary;
       }
     }
 

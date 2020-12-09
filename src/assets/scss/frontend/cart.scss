@@ -159,7 +159,7 @@
       display        : block;
       width          : 150px;
       line-height    : 30px;
-      background     :  #568bb1;
+      background     : $text_primary;
       text-align     : center;
       position       : relative;
       text-decoration: none;
@@ -170,58 +170,15 @@
       letter-spacing : 2px;
       border         : none;
 
-      &:hover{
-        background: #659cc3;
-      }
-      &:before,
-      &:after {
-        position  : absolute;
-        content   : "";
-        transition: all .25s;
+      &:hover {
+        background: $light_primary;
       }
 
-      &:before {
-        border-bottom: 2px solid #568bb1;
-        border-left  : 2px solid #568bb1;
-        width        : 10%;
-        height       : 33%;
-        left         : -6px;
-        bottom       : -6px;
-      }
-
-      &:after {
-        border-top  : 2px solid #568bb1;
-        border-right: 2px solid #568bb1;
-        width       : 10%;
-        height      : 33%;
-        top         : -6px;
-        right       : -6px;
-      }
-
-      &:hover:before {
-        width : calc(100% + 12px);
-        height: calc(100% + 12px);
-      }
-
-      &:hover:after {
-        width : calc(100% + 12px);
-        height: calc(100% + 12px);
-      }
 
 
       &[disabled] {
         box-shadow: none;
         background: gray;
-
-        &:before {
-          border-bottom: 2px solid gray;
-          border-left  : 2px solid gray;
-        }
-
-        &:after {
-          border-top  : 2px solid gray;
-          border-right: 2px solid gray;
-        }
 
       }
 

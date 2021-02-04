@@ -50,7 +50,7 @@
 * Bootstrap 4
 
 ### 使用套件
-animate 動畫
-vue-axios 串接RESTful API
-vue-awesome-swiper 首頁輪播
-vee-validate 訂購人資料認證
+* animate 動畫
+* vue-axios 串接RESTful API
+* vue-awesome-swiper 首頁輪播
+* vee-validate 訂購人資料認證

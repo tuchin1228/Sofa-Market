@@ -1,5 +1,7 @@
 # 沙發電商
 ![s1](https://user-images.githubusercontent.com/51053467/106922968-8ca71b00-6748-11eb-95be-d3809e111c0a.png)<br/>
+### Demo
+<a href="https://tuchin1228.github.io/Sofa-Market/#/" target="_blank">https://tuchin1228.github.io/Sofa-Market/#/</a><br/>
 ### 網站介紹
 * 前台
     * 首頁 - 推薦商品.商品分類入口
